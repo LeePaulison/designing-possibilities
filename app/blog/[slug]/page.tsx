@@ -1,32 +1,41 @@
-import { getAllPosts, Post } from '../../../lib/getPosts';
-import { remark } from 'remark';
-import html from 'remark-html';
+// app/blog/[slug]/page.tsx
+import { getAllPosts } from '../../../lib/getPosts';
+import { parseMarkdown } from '../../../lib/markdownToHtml';
+import { notFound } from 'next/navigation';
+
+type Props = {
+  params: { slug: string };
+};
 
 export async function generateStaticParams() {
-  return getAllPosts().map((post) => ({
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const posts = getAllPosts();
-  const post = posts.find((p) => p.slug === params.slug);
+// Define a default title and description in case the post data isn't available in `generateMetadata`.
+export async function generateMetadata({ params }: Props) {
+  const posts = await getAllPosts();
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
+
   return {
-    title: post?.data.title || 'Post',
-    description: post?.data.excerpt || '',
+    title: post ? post.data.title : 'Post',
+    description: post ? post.data.excerpt : 'No description available',
   };
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const posts = getAllPosts();
-  const post = posts.find((p) => p.slug === params.slug);
+export default async function PostPage({ params }: Props) {
+  const posts = await getAllPosts();
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
-    return <p>Post not found</p>;
+    notFound();
   }
 
-  const processedContent = await remark().use(html).process(post.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await parseMarkdown(post.content);
 
   return (
     <article className='container mx-auto px-4'>
