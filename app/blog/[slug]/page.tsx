@@ -1,5 +1,6 @@
 import { fetchPosts } from "@/app/actions/getPosts";
 import { notFound } from "next/navigation";
+import DefaultLayout from "@/components/DefaultLayout";
 import ClientPostPage from "./ClientPostPage";
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
@@ -14,7 +15,8 @@ export default async function PostPage({ params }: { params: { slug: string } })
   }
 
   return (
-    // Pass the post data to a client-side component
-    <ClientPostPage post={post} />
+    <DefaultLayout>
+      <ClientPostPage post={post} />
+    </DefaultLayout>
   );
 }

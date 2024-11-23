@@ -26,6 +26,8 @@ html.dark {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  width: 100svw;
+  height: 100svh;
 }
 
 /* Tailwind Components Using Variables */
