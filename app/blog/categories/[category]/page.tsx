@@ -1,14 +1,9 @@
+import { getCategories, Category } from "@/lib/getCategories";
 import { getPostsByCategory } from "@/lib/getPosts";
-import { getCategories } from "@/lib/getCategories";
+import PostCard from "@/components/ui/PostCard";
 
 type Props = {
   params: { category: string };
-};
-
-type Category = {
-  slug: string;
-  title: string;
-  description: string;
 };
 
 export default function CategoryPage({ params }: Props) {
@@ -22,21 +17,46 @@ export default function CategoryPage({ params }: Props) {
 
   return (
     <div>
-      <h1 className='text-3xl font-bold mb-4'>{categoryData.title}</h1>
-      <p className='mb-6'>{categoryData.description}</p>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-        {posts.map((post) => (
-          <div key={post.slug} className='p-4 border rounded shadow-md'>
-            <h2 className='text-xl font-semibold mb-2'>
-              <a href={`/blog/${post.slug}`} className='hover:underline text-amber-500'>
-                {post.data.title}
-              </a>
-            </h2>
-            <p className='text-sm text-stone-500'>{post.data.date}</p>
-            <p>{post.data.excerpt}</p>
-          </div>
-        ))}
-      </div>
+      <h1 className='text-3xl font-bold mb-6'>{categoryData.title}</h1>
+      <p className='mb-8'>{categoryData.description}</p>
+
+      {/* Latest Posts in Category */}
+      <section className='mb-8'>
+        <h2 className='text-2xl font-semibold mb-4'>Latest in {categoryData.title}</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {posts.slice(0, 4).map((post) => (
+            <PostCard
+              key={post.slug}
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              category={post.data.category}
+              slug={post.slug}
+              image={post.data.image}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* All Posts in Category */}
+      <section>
+        <h2 className='text-2xl font-semibold mb-4'>All Posts</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {posts.map((post) => (
+            <PostCard
+              key={post.slug}
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              category={post.data.category}
+              slug={post.slug}
+              image={post.data.image}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -4,7 +4,8 @@ import "./globals.css";
 import React, { ReactNode } from "react";
 import DropdownMenu from "../components/DropdownMenu";
 import { getCategories } from "@/lib/getCategories";
-import { get } from "http";
+import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: "My Blog",
@@ -15,7 +16,6 @@ export const metadata = {
 const categories = getCategories();
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  console.log(categories);
   return (
     <html lang='en'>
       <body className='bg-stone-100 text-stone-900 font-sans flex'>
@@ -28,32 +28,35 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <nav className='mt-8 w-full'>
             <ul className='space-y-4 text-stone-700'>
               <li>
-                <a href='/' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+                <Link href='/' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/blog' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
-                  Blog
-                </a>
+                <Link href='/blog/categories' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+                  Categories
+                </Link>
               </li>
               <DropdownMenu categories={categories} />
               <li>
-                <a href='/about' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+                <Link href='/about' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/contact' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+                <Link href='/contact' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
         </aside>
 
         {/* Main Content Area */}
-        <main className='flex-1 p-8'>{children}</main>
+        <main className='flex-1 p-8'>
+          <Breadcrumbs />
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Category } from "@/lib/getCategories";
+import Link from "next/link";
 
 type DropdownMenuProps = {
   categories: Category[];
@@ -32,7 +33,7 @@ export default function RadixDropdownMenu({ categories }: DropdownMenuProps) {
               className='px-4 py-2 text-stone-700 hover:bg-stone-200 rounded cursor-pointer'
               asChild
             >
-              <a href={`/blog/category/${category.slug}`}>{category.title}</a>
+              <Link href={`/blog/categories/${category.slug}`}>{category.title}</Link>
             </DropdownMenu.Item>
           ))}
         </DropdownMenu.Content>
