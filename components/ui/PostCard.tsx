@@ -3,6 +3,7 @@
 import Image from "next/image";
 import * as HoverCard from "@radix-ui/react-hover-card";
 import * as Tooltip from "@radix-ui/react-tooltip";
+import Link from "next/link";
 
 type PostCardProps = {
   title: string;
@@ -29,9 +30,9 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
           {/* Post Content */}
           <div>
             <h2 className='text-xl font-semibold text-stone-900 mb-2'>
-              <a href={`/blog/${slug}`} className='hover:underline'>
+              <Link href={`/blog/categories/${category}/${slug}`} className='hover:underline'>
                 {title}
-              </a>
+              </Link>
             </h2>
             <p className='text-sm text-stone-500 mb-2'>{date}</p>
             {category && <p className='text-xs text-amber-500 mb-4 uppercase tracking-wide'>{category}</p>}
@@ -68,9 +69,12 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
         <h3 className='text-lg font-semibold'>{title}</h3>
         <p className='text-sm text-stone-500 mb-2'>{date}</p>
         <p className='text-sm text-stone-700'>{excerpt}</p>
-        <a href={`/blog/${slug}`} className='text-amber-500 hover:underline mt-2 inline-block'>
+        <Link
+          href={`/blog/categories/${category}/${slug}`}
+          className='text-amber-500 hover:underline mt-2 inline-block'
+        >
           Read More
-        </a>
+        </Link>
       </HoverCard.Content>
     </HoverCard.Root>
   );

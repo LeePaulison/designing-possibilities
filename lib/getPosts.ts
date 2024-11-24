@@ -26,6 +26,9 @@ export function getAllPosts(): Post[] {
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data } = matter(fileContents);
 
+    // Default to "Uncategorized" if category is missing or empty
+    const category = data.category && data.category.trim() ? data.category : "Uncategorized";
+
     return {
       slug: fileName.replace(/\.md$/, ""),
       data: {
@@ -33,7 +36,7 @@ export function getAllPosts(): Post[] {
         date: data.date || "",
         excerpt: data.excerpt || "",
         tags: data.tags || [],
-        category: data.category || "Uncategorized",
+        category, // Ensured to have a value
         image: data.image || undefined,
       },
       content: matter(fileContents).content,
@@ -43,19 +46,11 @@ export function getAllPosts(): Post[] {
   return allPosts;
 }
 
-export function getUniqueCategories() {
-  const posts = getAllPosts();
-  const categories = new Set<string>();
-
-  posts.forEach((post) => {
-    if (post.data.category) {
-      categories.add(post.data.category);
-    }
-  });
-  return Array.from(categories);
-}
-
 export function getPostsByCategory(category: string) {
-  const posts = getAllPosts();
-  return posts.filter((post) => post.data.category === category);
+  const allPosts = getAllPosts();
+
+  return allPosts.filter((post) => {
+    const postCategory = post.data.category?.trim() || "Uncategorized"; // Default to "Uncategorized"
+    return postCategory.toLowerCase() === category.toLowerCase();
+  });
 }
