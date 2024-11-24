@@ -10,6 +10,7 @@ export type PostData = {
   excerpt: string;
   tags: string[];
   category: string;
+  image?: string;
 };
 
 export type Post = {
@@ -33,6 +34,7 @@ export function getAllPosts(): Post[] {
         excerpt: data.excerpt || "",
         tags: data.tags || [],
         category: data.category || "Uncategorized",
+        image: data.image || undefined,
       },
       content: matter(fileContents).content,
     };
@@ -51,4 +53,9 @@ export function getUniqueCategories() {
     }
   });
   return Array.from(categories);
+}
+
+export function getPostsByCategory(category: string) {
+  const posts = getAllPosts();
+  return posts.filter((post) => post.data.category === category);
 }

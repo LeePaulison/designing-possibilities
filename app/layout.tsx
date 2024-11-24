@@ -3,7 +3,8 @@ import "./globals.css";
 
 import React, { ReactNode } from "react";
 import DropdownMenu from "../components/DropdownMenu";
-import { getUniqueCategories } from "@/lib/getPosts";
+import { getCategories } from "@/lib/getCategories";
+import { get } from "http";
 
 export const metadata = {
   title: "My Blog",
@@ -11,9 +12,10 @@ export const metadata = {
 };
 
 // Example hardcoded categories (fetch dynamically later)
-const categories = getUniqueCategories();
+const categories = getCategories();
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  console.log(categories);
   return (
     <html lang='en'>
       <body className='bg-stone-100 text-stone-900 font-sans flex'>
