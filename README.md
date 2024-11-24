@@ -34,7 +34,6 @@ Welcome to **Designing Possibilities**, a professional blog built to share knowl
 
 - **Markdown Support**: Write blog posts using Markdown for simplicity and readability.
 - **Responsive Design**: Ensures a seamless experience across devices.
-- **Dark/Light Theme Toggle**: Personalize the viewing experience.
 - **Custom Styling**: Tailored with the Stone and Amber palettes from Tailwind CSS.
 - **Zero External Data**: Focused on server-rendered static content.
 
@@ -46,7 +45,7 @@ Welcome to **Designing Possibilities**, a professional blog built to share knowl
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/), SCSS
 - **Markdown Parsing**: [Remark](https://remark.js.org/) and [Gray-Matter](https://github.com/jonschlinkert/gray-matter)
 - **TypeScript**: For type-safe development (optional but encouraged)
-- **Package Manager**: [Yarn](https://yarnpkg.com/)
+- **Package Manager**: [NPM](https://nodejs.org/en)
 
 ---
 
@@ -115,7 +114,7 @@ npm run start
 ## Customization
 
 1. **Styling**:
-   - Modify global styles in `styles/globals.scss`.
+   - Modify global styles in `styles/globals.css`.
    - Tailwind CSS is configured via `tailwind.config.js` for theme and palette adjustments.
 
 2. **Content**:
