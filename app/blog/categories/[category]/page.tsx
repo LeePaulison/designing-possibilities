@@ -6,8 +6,8 @@ type Props = {
   params: { category: string };
 };
 
-export default function CategoryPage({ params }: Props) {
-  const { category } = params;
+export default async function CategoryPage({ params }: Props) {
+  const { category } = await params;
   const categoryData = getCategories().find((cat: Category) => cat.slug === category);
   const posts = getPostsByCategory(category);
 

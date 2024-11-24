@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { parseMarkdown } from "../../../lib/markdownToHtml";
-import { useAddCopyButtons } from "../../hooks/useAddCopyButtons";
+import { parseMarkdown } from "@/lib/markdownToHtml";
+import { useAddCopyButtons } from "@/app/hooks/useAddCopyButtons";
 import Link from "next/link";
 
 type Post = {

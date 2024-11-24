@@ -9,13 +9,15 @@ type PostCardProps = {
   title: string;
   excerpt: string;
   date: string;
-  category?: string;
+  category: string;
   slug: string;
   image?: string;
   tags?: string[];
 };
 
 export default function PostCard({ title, excerpt, date, category, slug, image, tags }: PostCardProps) {
+  const resolvedCategory = category?.toLowerCase() || "uncategorized";
+
   return (
     <HoverCard.Root>
       <HoverCard.Trigger asChild>
@@ -30,7 +32,7 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
           {/* Post Content */}
           <div>
             <h2 className='text-xl font-semibold text-stone-900 mb-2'>
-              <Link href={`/blog/categories/${category}/${slug}`} className='hover:underline'>
+              <Link href={`/blog/categories/${resolvedCategory}/${slug}`} className='hover:underline'>
                 {title}
               </Link>
             </h2>
@@ -70,7 +72,7 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
         <p className='text-sm text-stone-500 mb-2'>{date}</p>
         <p className='text-sm text-stone-700'>{excerpt}</p>
         <Link
-          href={`/blog/categories/${category}/${slug}`}
+          href={`/blog/categories/${resolvedCategory}/${slug}`}
           className='text-amber-500 hover:underline mt-2 inline-block'
         >
           Read More

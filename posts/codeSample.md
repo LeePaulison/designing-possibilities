@@ -4,6 +4,7 @@ date: "2024-11-13"
 excerpt: "An introduction to accessible and inclusive front-end development."
 tags: ["introduction", "accessibility", "frontend"]
 image: "https://picsum.photos/400/225"
+category: "Project-404"
 ---
 
 Let's test some markdown with code samples.

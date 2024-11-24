@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["picsum.photos"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog",
+        destination: "/blog/categories",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

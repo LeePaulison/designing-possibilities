@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { getAllPosts } from "./getPosts";
+import { getAllPosts, Post } from "./getPosts";
 
 export type Category = {
   title: string;
@@ -17,7 +17,7 @@ export function getCategories(): Category[] {
 
   // Dynamic categories inferred from posts
   const allPosts = getAllPosts();
-  const dynamicCategories = new Set(allPosts.map((post) => post.data.category || "Uncategorized"));
+  const dynamicCategories = new Set(allPosts.map((post: Post) => post.data.category || "Uncategorized"));
 
   // Merge static categories with dynamically inferred categories
   const mergedCategories = data.categories.map((category: Category) => ({

@@ -15,7 +15,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Apply the theme to the <html> tag
     document.documentElement.className = theme;
-    console.log(`Theme applied: ${theme}`); // Debugging log
   }, [theme]);
 
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;

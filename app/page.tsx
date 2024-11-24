@@ -35,6 +35,7 @@ export default async function HomePage() {
               date={post.data.date}
               image={post.data.image}
               tags={post.data.tags}
+              category={post.data.category}
             />
           ))}
         </div>
