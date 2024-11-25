@@ -26,7 +26,15 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
           {/* Image Section */}
           {image && (
             <div className='mb-4'>
-              <Image src={image} alt={title} width={400} height={200} className='rounded-md object-cover' />
+              <Image
+                src={image}
+                alt={title}
+                width={400}
+                height={200}
+                layout='responsive'
+                objectFit='cover'
+                className='rounded-md'
+              />
             </div>
           )}
 
