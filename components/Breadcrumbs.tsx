@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
@@ -21,9 +22,9 @@ export default function Breadcrumbs() {
       <ul className='flex space-x-2'>
         {/* Always include Home */}
         <li>
-          <a href='/' className='hover:underline text-amber-500'>
+          <Link href='/' className='hover:underline text-amber-500'>
             Home
-          </a>
+          </Link>
         </li>
 
         {segments.map((segment, index) => {
@@ -34,9 +35,9 @@ export default function Breadcrumbs() {
             return (
               <li key={index} className='flex items-center'>
                 <span className='mx-1'>/</span>
-                <a href='/blog/categories' className='hover:underline text-amber-500'>
+                <Link href='/blog/categories' className='hover:underline text-amber-500'>
                   Categories
-                </a>
+                </Link>
               </li>
             );
           }
@@ -50,9 +51,9 @@ export default function Breadcrumbs() {
                 {isLast ? (
                   <span aria-current='page'>{formatSegment(segment)}</span>
                 ) : (
-                  <a href={href} className='hover:underline text-amber-500'>
+                  <Link href={href} className='hover:underline text-amber-500'>
                     {formatSegment(segment)}
-                  </a>
+                  </Link>
                 )}
               </li>
             );
@@ -76,9 +77,9 @@ export default function Breadcrumbs() {
               {isLast ? (
                 <span aria-current='page'>{formatSegment(segment)}</span>
               ) : (
-                <a href={href} className='hover:underline text-amber-500'>
+                <Link href={href} className='hover:underline text-amber-500'>
                   {formatSegment(segment)}
-                </a>
+                </Link>
               )}
             </li>
           );

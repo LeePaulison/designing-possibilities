@@ -11,6 +11,10 @@ export default async function CategoryPage({ params }: Props) {
   const categoryData = getCategories().find((cat: Category) => cat.slug === category);
   const posts = getPostsByCategory(category);
 
+  console.log("Category:", category);
+  console.log("Category Data:", categoryData);
+  console.log("Posts:", posts);
+
   if (!categoryData) {
     return <p>Category not found.</p>;
   }

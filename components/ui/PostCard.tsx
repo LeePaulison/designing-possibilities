@@ -4,6 +4,7 @@ import Image from "next/image";
 import * as HoverCard from "@radix-ui/react-hover-card";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import Link from "next/link";
+import { formatCategoryForDisplay } from "@/lib/utilities";
 
 type PostCardProps = {
   title: string;
@@ -37,7 +38,11 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
               </Link>
             </h2>
             <p className='text-sm text-stone-500 mb-2'>{date}</p>
-            {category && <p className='text-xs text-amber-500 mb-4 uppercase tracking-wide'>{category}</p>}
+            {category && (
+              <p className='text-xs text-amber-500 mb-4 uppercase tracking-wide'>
+                {formatCategoryForDisplay(category)}
+              </p>
+            )}
             <p className='text-sm text-stone-700'>{excerpt}</p>
           </div>
 
