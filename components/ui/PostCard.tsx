@@ -31,8 +31,7 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
                 alt={title}
                 width={400}
                 height={200}
-                layout='responsive'
-                objectFit='cover'
+                style={{ objectFit: "cover" }}
                 className='rounded-md'
               />
             </div>

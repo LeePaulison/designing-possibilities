@@ -6,6 +6,7 @@ import { HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import DropdownMenu from "@/components/DropdownMenu";
 import { Category } from "@/lib/getCategories";
+import SearchInput from "./SearchInput";
 
 const Sidebar = ({ categories }: { categories: Category[] }) => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -35,11 +36,11 @@ const Sidebar = ({ categories }: { categories: Category[] }) => {
               <Cross2Icon className='h-6 w-6' />
             </button>
           </DialogClose>
-
           <div className='text-amber-500 text-4xl font-bold tracking-wider mb-12 relative'>
             <span className='block transform -rotate-45 leading-none'>Designing</span>
             <span className='block transform -rotate-45 leading-none ml-16'>Possibilities</span>
           </div>
+          <SearchInput />
           <nav className='mt-8 w-full'>
             <ul className='space-y-4 text-stone-700'>
               <li>
@@ -74,7 +75,8 @@ const Sidebar = ({ categories }: { categories: Category[] }) => {
           <span className='block transform -rotate-45 leading-none'>Designing</span>
           <span className='block transform -rotate-45 leading-none ml-16'>Possibilities</span>
         </div>
-        <nav className='mt-8 w-full'>
+        <SearchInput className='mt-8' />
+        <nav className='mt-4 w-full'>
           <ul className='space-y-4 text-stone-700'>
             <li>
               <Link href='/' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>

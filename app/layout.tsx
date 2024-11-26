@@ -7,8 +7,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata = {
-  title: "My Blog",
-  description: "Exploring possibilities through words.",
+  title: "Designing Possibilities",
+  description: "Exploring the possibilities found in accessible front-end design.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -1,0 +1,47 @@
+"use client";
+
+import React, { useState } from "react";
+import { MagnifyingGlassIcon, Cross2Icon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
+
+interface SearchInputProps {
+  className?: string;
+  inputClassName?: string;
+  buttonClassName?: string;
+}
+
+export default function SearchInput({ className, inputClassName, buttonClassName }: SearchInputProps) {
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (query.trim() !== "") {
+      router.push(`/search?query=${encodeURIComponent(query)}`);
+    }
+    setQuery("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={`relative w-full max-w-md mx-auto flex items-center ${className}`}>
+      {/* Magnifying Glass Icon */}
+      <span className='absolute left-3'>
+        <MagnifyingGlassIcon className='h-5 w-5 text-gray-500' />
+      </span>
+      {/* Input Field */}
+      <input
+        type='text'
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder='Search posts...'
+        className={`w-full pl-10 pr-10 py-2 border rounded-lg hover:ring-2 hover:ring-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500 ${inputClassName}`}
+      />
+      {/* Clear Input Button */}
+      {query && (
+        <button type='button' onClick={() => setQuery("")} className={`absolute right-3 ${buttonClassName}`}>
+          <Cross2Icon className='h-5 w-5 text-gray-500 hover:text-gray-800' />
+        </button>
+      )}
+    </form>
+  );
+}
