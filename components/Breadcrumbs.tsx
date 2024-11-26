@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { formatCategoryForDisplay, splitIntoWords } from "@/lib/utilities";
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
@@ -12,17 +13,12 @@ export default function Breadcrumbs() {
   // Don't render breadcrumbs on the root page
   if (segments.length === 0) return null;
 
-  const formatSegment = (segment: string) =>
-    decodeURIComponent(segment)
-      .replace(/-/g, " ") // Replace hyphens with spaces
-      .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize each word
-
   return (
     <nav aria-label='Breadcrumb' className='mb-4 text-sm text-stone-600'>
       <ul className='flex space-x-2'>
         {/* Always include Home */}
         <li>
-          <Link href='/' className='hover:underline text-amber-500'>
+          <Link href='/' className='hover:underline text-amber-500' aria-label='Home Breadcrumb'>
             Home
           </Link>
         </li>
@@ -35,7 +31,11 @@ export default function Breadcrumbs() {
             return (
               <li key={index} className='flex items-center'>
                 <span className='mx-1'>/</span>
-                <Link href='/blog/categories' className='hover:underline text-amber-500'>
+                <Link
+                  href='/blog/categories'
+                  className='hover:underline text-amber-500'
+                  aria-label='Categories Breadcrumb'
+                >
                   Categories
                 </Link>
               </li>
@@ -49,10 +49,14 @@ export default function Breadcrumbs() {
               <li key={index} className='flex items-center'>
                 <span className='mx-1'>/</span>
                 {isLast ? (
-                  <span aria-current='page'>{formatSegment(segment)}</span>
+                  <span aria-current='page'>{formatCategoryForDisplay(segment)}</span>
                 ) : (
-                  <Link href={href} className='hover:underline text-amber-500'>
-                    {formatSegment(segment)}
+                  <Link
+                    href={href}
+                    className='hover:underline text-amber-500'
+                    aria-label={`${formatCategoryForDisplay(segment)} Breadcrumb`}
+                  >
+                    {formatCategoryForDisplay(segment)}
                   </Link>
                 )}
               </li>
@@ -61,10 +65,11 @@ export default function Breadcrumbs() {
 
           // Handle Post (last breadcrumb)
           if (segments[0] === "categories" && index === segments.length - 1) {
+            console.log("Post segment", segment);
             return (
               <li key={index} className='flex items-center'>
                 <span className='mx-1'>/</span>
-                <span aria-current='page'>{formatSegment(segment)}</span>
+                <span aria-current='page'>{splitIntoWords(segment)}</span>
               </li>
             );
           }
@@ -75,10 +80,14 @@ export default function Breadcrumbs() {
             <li key={index} className='flex items-center'>
               <span className='mx-1'>/</span>
               {isLast ? (
-                <span aria-current='page'>{formatSegment(segment)}</span>
+                <span aria-current='page'>{formatCategoryForDisplay(segment)}</span>
               ) : (
-                <Link href={href} className='hover:underline text-amber-500'>
-                  {formatSegment(segment)}
+                <Link
+                  href={href}
+                  className='hover:underline text-amber-500'
+                  aria-label={`${formatCategoryForDisplay(segment)} Breadcrumb`}
+                >
+                  {formatCategoryForDisplay(segment)}
                 </Link>
               )}
             </li>
