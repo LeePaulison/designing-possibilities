@@ -5,6 +5,7 @@ import React, { ReactNode } from "react";
 import { getCategories } from "@/lib/getCategories";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Sidebar from "@/components/Sidebar";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export const metadata = {
   title: "Designing Possibilities",
@@ -16,11 +17,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html lang='en'>
-      <body className='bg-stone-100 text-stone-900 font-sans flex'>
+      <body className='font-sans flex bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark'>
         <Sidebar categories={categories} />
         <main className='flex-1 overflow-auto'>
           <div className='max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-8'>
-            <Breadcrumbs />
+            <div className='flex flex-row'>
+              <Breadcrumbs />
+              <ThemeToggle />
+            </div>
             {children}
           </div>
         </main>

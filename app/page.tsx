@@ -4,7 +4,7 @@ import Link from "next/link";
 import PostCard from "@/components/ui/PostCard";
 
 export const metadata = {
-  title: "My Blog",
+  title: "Designing Possibilities",
   description: "Exploring possibilities through words.",
 };
 
@@ -15,9 +15,11 @@ export default async function HomePage() {
   return (
     <section className='container mx-auto py-8 px-4'>
       {/* Welcome Section */}
-      <div className='bg-primary text-primary py-20 text-center mb-12 rounded-lg shadow'>
-        <h1 className='text-5xl font-bold mb-4'>Designing Possibilities</h1>
-        <p className='text-lg max-w-2xl mx-auto'>
+      <div className='bg-background-light  dark:bg-background-dark py-20 text-center mb-12 rounded-lg shadow dark:shadow-amber-800'>
+        <h1 className='text-5xl font-bold mb-4 text-secondary-light dark:text-secondary-dark'>
+          Designing Possibilities
+        </h1>
+        <p className='text-lg max-w-2xl mx-auto text-light dark:text-dark'>
           Dive into insightful articles and thoughts on technology, design, and creativity.
         </p>
       </div>

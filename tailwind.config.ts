@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
+import colors from "tailwindcss/colors";
 
 export default {
   content: [
@@ -10,15 +11,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          light: "#fef3c7", // Amber-100
-          DEFAULT: "#f59e0b", // Amber-500
-          dark: "#78350f", // Amber-800
+        background: {
+          light: colors.stone[100], // Light theme background
+          dark: colors.stone[900], // Dark theme background
         },
-        neutral: {
-          light: "#f5f5f4", // Stone-100
-          DEFAULT: "#78716c", // Stone-500
-          dark: "#292524", // Stone-900
+        text: {
+          light: colors.stone[900], // Light theme text
+          dark: colors.stone[100], // Dark theme text
+        },
+        primary: {
+          light: colors.amber[500], // Light theme primary
+          dark: colors.amber[800], // Dark theme primary
+        },
+        secondary: {
+          light: colors.amber[800], // Light theme secondary
+          dark: colors.amber[500], // Dark theme secondary
         },
       },
     },

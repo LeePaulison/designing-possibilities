@@ -13,7 +13,7 @@ export default function RadixDropdownMenu({ categories }: DropdownMenuProps) {
     <DropdownMenu.Root>
       {/* Trigger */}
       <DropdownMenu.Trigger
-        className='w-full flex justify-between items-center py-2 px-4 bg-white hover:bg-stone-200 rounded transition'
+        className='w-full flex justify-between items-center py-2 px-4 bg-background-light dark:bg-background-dark hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'
         aria-label='Categories'
       >
         Categories
@@ -23,14 +23,14 @@ export default function RadixDropdownMenu({ categories }: DropdownMenuProps) {
       {/* Dropdown Content */}
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className='flex flex-col bg-white rounded shadow-lg p-2 w-56'
+          className='flex flex-col bg-background-light dark:bg-background-dark rounded shadow-lg p-2 w-56'
           sideOffset={5}
           align='start'
         >
           {categories.map((category) => (
             <DropdownMenu.Item
               key={category.slug}
-              className='px-4 py-2 text-stone-700 hover:bg-stone-200 rounded cursor-pointer'
+              className='px-4 py-2 text-stone-700 dark:text-stone-300 hover:bg-stone-200 hover:dark:bg-stone-800 rounded cursor-pointer'
               asChild
             >
               <Link href={`/blog/categories/${category.slug}`}>{category.title}</Link>

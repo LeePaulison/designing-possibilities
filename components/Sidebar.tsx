@@ -18,7 +18,7 @@ const Sidebar = ({ categories }: { categories: Category[] }) => {
         <DialogTrigger asChild>
           <button
             aria-label='Toggle Menu'
-            className='inline-flex md:hidden h-fit w-fit text-amber-500 p-2 mt-1 ms-1 rounded focus:outline-none hover:ring-2 hover:ring-amber-400 transition'
+            className='inline-flex md:hidden h-fit w-fit text-primary-light dark:text-primary-dark p-2 mt-1 ms-1 rounded focus:outline-none hover:ring-2 hover:ring-amber-400 transition'
           >
             {sidebarVisible ? <Cross2Icon className='h-6 w-6' /> : <HamburgerMenuIcon className='h-6 w-6' />}
           </button>
@@ -36,7 +36,7 @@ const Sidebar = ({ categories }: { categories: Category[] }) => {
               <Cross2Icon className='h-6 w-6' />
             </button>
           </DialogClose>
-          <div className='text-amber-500 text-4xl font-bold tracking-wider mb-12 relative'>
+          <div className='text-primary-light dark:text-primary-dark text-4xl font-bold tracking-wider mb-12 relative'>
             <span className='block transform -rotate-45 leading-none'>Designing</span>
             <span className='block transform -rotate-45 leading-none ml-16'>Possibilities</span>
           </div>
@@ -70,32 +70,41 @@ const Sidebar = ({ categories }: { categories: Category[] }) => {
       </Dialog>
 
       {/* Sidebar for larger screens */}
-      <aside className='hidden md:flex w-64 h-full bg-white shadow-md flex-col items-center py-8 px-4'>
-        <div className='text-amber-500 text-4xl font-bold tracking-wider mb-12 relative'>
+      <aside className='hidden md:flex w-64 h-full bg-background-light dark:bg-background-dark shadow-md flex-col items-center py-8 px-4'>
+        <div className='text-primary-light dark:text-primary-dark text-4xl font-bold tracking-wider mb-12 relative'>
           <span className='block transform -rotate-45 leading-none'>Designing</span>
           <span className='block transform -rotate-45 leading-none ml-16'>Possibilities</span>
         </div>
         <SearchInput className='mt-8' />
         <nav className='mt-4 w-full'>
-          <ul className='space-y-4 text-stone-700'>
+          <ul className='space-y-4 text-stone-700 dark:text-stone-300'>
             <li>
-              <Link href='/' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+              <Link href='/' className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'>
                 Home
               </Link>
             </li>
             <li>
-              <Link href='/blog/categories' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+              <Link
+                href='/blog/categories'
+                className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'
+              >
                 Categories
               </Link>
             </li>
             <DropdownMenu categories={categories} />
             <li>
-              <Link href='/about' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+              <Link
+                href='/about'
+                className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link href='/contact' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
+              <Link
+                href='/contact'
+                className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'
+              >
                 Contact
               </Link>
             </li>
