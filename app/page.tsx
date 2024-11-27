@@ -1,5 +1,4 @@
 import { getAllPosts, Post } from "../lib/getPosts";
-import Link from "next/link";
 
 import PostCard from "@/components/ui/PostCard";
 

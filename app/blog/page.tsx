@@ -1,6 +1,5 @@
 import { getAllPosts, Post } from "../../lib/getPosts";
 import PostCard from "@/components/ui/PostCard";
-import Link from "next/link";
 
 export default async function BlogPage() {
   const posts: Post[] = getAllPosts();

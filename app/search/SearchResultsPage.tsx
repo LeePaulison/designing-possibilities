@@ -28,8 +28,12 @@ export default function SearchResultsPage({ query }: { query: string }) {
         }
         const data = await response.json();
         setResults(data.results);
-      } catch (err: any) {
-        setError(err.message || "An unknown error occurred");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unknown error occurred");
+        }
       } finally {
         setLoading(false);
       }

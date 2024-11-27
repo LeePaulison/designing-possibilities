@@ -10,7 +10,12 @@ type MetadataType = {
   image?: string;
 };
 
-export async function generateMetadata({ params }: { params: { category: string; post: string } }): Promise<Metadata> {
+type PageProps = {
+  category: "string";
+  post: "string";
+};
+
+export async function generateMetadata({ params }: { params: PageProps }): Promise<Metadata> {
   const { category, post } = await params;
   const posts = getAllPosts();
 
