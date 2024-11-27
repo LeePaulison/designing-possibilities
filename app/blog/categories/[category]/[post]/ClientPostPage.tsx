@@ -33,15 +33,20 @@ export default function ClientPostPage({ post }: { post: Post }) {
   }, [post.content]);
 
   return (
-    <article className='container mx-auto py-8 px-4 max-w-4xl bg-neutral-light shadow rounded-lg'>
+    <article className='container mx-auto py-8 px-4 max-w-4xl bg-light-background dark:bg-dark-background shadow-md rounded-lg'>
       {/* Post Header */}
       <header className='mb-8'>
-        <h1 className='text-4xl font-bold text-primary mb-4'>{post.data.title}</h1>
-        <p className='text-neutral-dark text-sm'>{post.data.date}</p>
+        <h1 className='text-4xl font-serif font-bold text-light-primary dark:text-dark-primary mb-4'>
+          {post.data.title}
+        </h1>
+        <p className='text-sm text-light-secondary dark:text-dark-secondary'>{post.data.date}</p>
         {post.data.tags && (
           <div className='flex gap-2 mt-4'>
             {post.data.tags.map((tag) => (
-              <span key={tag} className='bg-primary-light text-primary-dark px-2 py-1 rounded text-sm'>
+              <span
+                key={tag}
+                className='bg-light-accent dark:bg-dark-accent text-light-text dark:text-dark-text px-2 py-1 rounded text-sm'
+              >
                 {tag}
               </span>
             ))}
@@ -50,10 +55,13 @@ export default function ClientPostPage({ post }: { post: Post }) {
       </header>
 
       {/* Post Content */}
-      <div className='prose prose-lg text-neutral-dark' dangerouslySetInnerHTML={{ __html: contentHtml }} />
+      <div
+        className='prose prose-lg text-light-text dark:text-dark-text'
+        dangerouslySetInnerHTML={{ __html: contentHtml }}
+      />
 
       {/* Back to Blog Link */}
-      <Link href='/blog' className='inline-block mt-8 text-primary hover:underline'>
+      <Link href='/blog' className='inline-block mt-8 text-light-accent dark:text-dark-accent hover:underline'>
         ← Back to Blog
       </Link>
     </article>

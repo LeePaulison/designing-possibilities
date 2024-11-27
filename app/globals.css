@@ -2,59 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css");
 
 /* globals.css */
 
+/* H1 Styles */
+.prose h1 {
+  font-family: "Playfair Display", serif; /* Elegant serif font for headings */
+  font-size: 2.5rem; /* Adjust based on your design scale */
+  font-weight: 700; /* Bold for emphasis */
+  line-height: 1.2; /* Improve readability */
+  color: var(--primary-color); /* Use a primary color variable for adaptability */
+  margin-bottom: 1.5rem; /* Create spacing below headings */
+}
+
+/* Paragraph Styles */
+.prose p {
+  font-family: "Inter", sans-serif; /* Clean sans-serif for readability */
+  font-size: 1rem; /* Standard font size for body text */
+  line-height: 1.6; /* Comfortable line spacing for reading */
+  color: var(--text-color); /* Text color variable for theme adaptability */
+  margin-bottom: 1rem; /* Space between paragraphs */
+}
+
+/* Strong (Bold Text) Styles */
+.prose p strong {
+  font-family: "Inter", sans-serif; /* Match paragraph font for consistency */
+  font-weight: 600; /* Semi-bold for emphasis */
+  color: var(--accent-color); /* Use accent color for visibility */
+}
+
+.prose ol li strong,
+.prose ul li strong {
+  font-family: "Inter", sans-serif; /* Match paragraph font for consistency */
+  font-weight: 600; /* Semi-bold for emphasis */
+  color: var(--accent-color); /* Use accent color for visibility */
+}
+
+.prose pre {
+  background-color: #1c1917; /* Stone-900 for dark theme consistency */
+  color: #e7e5e4; /* Stone-200 for text in dark mode */
+  padding: 1.5rem; /* Spacious padding for readability */
+  border-radius: 0.375rem; /* Subtle rounding */
+  overflow-x: auto; /* Ensure horizontal scroll for long code lines */
+  font-family: "Fira Code", monospace; /* Monospace font for code */
+  font-size: 0.875rem; /* Tailwind text-sm equivalent */
+  line-height: 1.6; /* Improve line spacing */
+  border: 1px solid #292524; /* Stone-800 to separate from background */
+}
+
 /* Light Theme */
 html.light {
-  --bg-color: #f5f5f4; /* Stone-100 */
-  --text-color: #292524; /* Stone-900 */
-  --primary-color: #f59e0b; /* Amber-500 */
-  --secondary-color: #78350f; /* Amber-800 */
+  --code-color: #78350f; /* Amber-800 */
+  --code-bg: #fef3c7; /* Amber-100 */
+  --pre-bg: #fafaf9; /* Stone-50 for pre background */
+  --pre-border: #e7e5e4; /* Stone-200 for light theme border */
+}
+.prose pre {
+  background-color: var(--pre-bg);
+  border: 1px solid var(--pre-border);
+  color: #292524; /* Stone-900 */
 }
 
 /* Dark Theme */
 html.dark {
-  --bg-color: #292524; /* Stone-900 */
-  --text-color: #f5f5f4; /* Stone-100 */
-  --primary-color: #78350f; /* Amber-800 */
-  --secondary-color: #f59e0b; /* Amber-500 */
+  --code-color: #d97706; /* Amber-600 */
+  --code-bg: #1c1917; /* Stone-900 */
+  --pre-bg: #1e293b; /* Slate-800 */
+  --pre-border: #292524; /* Stone-800 */
+}
+html.dark .prose pre {
+  background-color: var(--pre-bg);
+  border: 1px solid var(--pre-border);
+  color: #e7e5e4; /* Stone-200 */
 }
 
-/* Apply Variables */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  width: 100svw;
-  height: 100svh;
+/* Dark Theme */
+html.dark .prose :not(pre) code {
+  color: var(--code-color, #d97706); /* Darker Amber */
+  background-color: var(--code-bg, #1c1917); /* Stone-900 */
 }
 
-/* Tailwind Components Using Variables */
-.bg-primary {
-  background-color: var(--primary-color);
-}
-
-.bg-secondary {
-  background-color: var(--secondary-color);
-}
-
-.text-primary {
-  color: var(--text-color);
-}
-
-.text-secondary {
-  color: var(--secondary-color);
-}
-
-.prose pre {
-  background-color: #1e293b;
-  padding: 1.5rem;
-  border-radius: 0.375rem;
-  overflow-x: auto;
-}
-
-.prose code {
+/* Inline Code */
+.prose :not(pre) code {
+  color: var(--code-color); /* Theme-aware text color */
+  background-color: var(--code-bg); /* Theme-aware background */
   font-family: "Fira Code", monospace;
-  color: #e2e8f0;
+  padding: 0.25rem 0.5rem; /* Increase padding slightly */
+  border-radius: 0.25rem;
+  font-size: 0.85rem; /* Slightly smaller for inline */
 }

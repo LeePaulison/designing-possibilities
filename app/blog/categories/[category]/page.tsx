@@ -16,17 +16,24 @@ export default async function CategoryPage({ params }: Props) {
   console.log("Posts:", posts);
 
   if (!categoryData) {
-    return <p>Category not found.</p>;
+    return <p className='text-light-secondary dark:text-dark-secondary text-center mt-8'>Category not found.</p>;
   }
 
   return (
-    <div>
-      <h1 className='text-3xl font-bold mb-6'>{categoryData.title}</h1>
-      <p className='mb-8'>{categoryData.description}</p>
+    <div className='container mx-auto px-4 py-8 max-w-6xl'>
+      {/* Category Header */}
+      <header className='mb-8'>
+        <h1 className='text-3xl font-serif font-bold text-light-primary dark:text-dark-primary mb-4'>
+          {categoryData.title}
+        </h1>
+        <p className='text-light-secondary dark:text-dark-secondary'>{categoryData.description}</p>
+      </header>
 
       {/* Latest Posts in Category */}
       <section className='mb-8'>
-        <h2 className='text-2xl font-semibold mb-4'>Latest in {categoryData.title}</h2>
+        <h2 className='text-2xl font-semibold text-light-secondary dark:text-dark-secondary mb-4'>
+          Latest in {categoryData.title}
+        </h2>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {posts.slice(0, 4).map((post) => (
             <PostCard
@@ -45,7 +52,7 @@ export default async function CategoryPage({ params }: Props) {
 
       {/* All Posts in Category */}
       <section>
-        <h2 className='text-2xl font-semibold mb-4'>All Posts</h2>
+        <h2 className='text-2xl font-semibold text-light-secondary dark:text-dark-secondary mb-4'>All Posts</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {posts.map((post) => (
             <PostCard

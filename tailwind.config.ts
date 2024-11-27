@@ -11,22 +11,44 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: {
-          light: colors.stone[100], // Light theme background
-          dark: colors.stone[900], // Dark theme background
+        light: {
+          primary: "#F59E0B", // amber.500
+          secondary: "#6366F1", // indigo.500
+          background: "#FAFAF9", // stone.50
+          text: "#1C1917", // stone.900
+          accent: "#38B2AC", // teal.400
         },
-        text: {
-          light: colors.stone[900], // Light theme text
-          dark: colors.stone[100], // Dark theme text
+        dark: {
+          primary: "#D97706", // amber.600
+          secondary: "#2563EB", // blue.600
+          background: "#1C1917", // stone.900
+          text: "#E7E5E4", // stone.200
+          accent: "#319795", // teal.500
         },
-        primary: {
-          light: colors.amber[500], // Light theme primary
-          dark: colors.amber[800], // Dark theme primary
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            code: {
+              color: "#F59E0B", // Light Amber
+              backgroundColor: "#FAFAF9", // Stone-50
+              borderRadius: "0.25rem", // Rounded code blocks
+              padding: "0.2rem 0.4rem", // Highlight size
+            },
+          },
         },
-        secondary: {
-          light: colors.amber[800], // Light theme secondary
-          dark: colors.amber[500], // Dark theme secondary
+        dark: {
+          css: {
+            code: {
+              color: "#D97706", // Dark Amber
+              backgroundColor: "#1C1917", // Stone-900
+            },
+          },
         },
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"], // Primary font
+        serif: ["Playfair Display", "serif"], // Secondary font
       },
     },
   },

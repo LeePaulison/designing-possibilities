@@ -8,6 +8,42 @@ import DropdownMenu from "@/components/DropdownMenu";
 import { Category } from "@/lib/getCategories";
 import SearchInput from "./SearchInput";
 
+const SidebarButton = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <Link
+    href={href}
+    className='block py-2 px-4 rounded transition text-light-text dark:text-dark-text hover:bg-light-accent dark:hover:bg-dark-accent'
+  >
+    {children}
+  </Link>
+);
+
+const SidebarHeader = () => (
+  <div className='text-light-primary dark:text-dark-primary text-4xl font-serif font-bold tracking-wider mb-12 relative'>
+    <span className='block transform -rotate-45 leading-none'>Designing</span>
+    <span className='block transform -rotate-45 leading-none ml-16'>Possibilities</span>
+  </div>
+);
+
+const SidebarNavigation = ({ categories }: { categories: Category[] }) => (
+  <nav className='mt-8 w-full'>
+    <ul className='space-y-4'>
+      <li>
+        <SidebarButton href='/'>Home</SidebarButton>
+      </li>
+      <li>
+        <SidebarButton href='/blog/categories'>All Categories</SidebarButton>
+      </li>
+      <DropdownMenu categories={categories} />
+      <li>
+        <SidebarButton href='/about'>About</SidebarButton>
+      </li>
+      <li>
+        <SidebarButton href='/contact'>Contact</SidebarButton>
+      </li>
+    </ul>
+  </nav>
+);
+
 const Sidebar = ({ categories }: { categories: Category[] }) => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
@@ -18,98 +54,35 @@ const Sidebar = ({ categories }: { categories: Category[] }) => {
         <DialogTrigger asChild>
           <button
             aria-label='Toggle Menu'
-            className='inline-flex md:hidden h-fit w-fit text-primary-light dark:text-primary-dark p-2 mt-1 ms-1 rounded focus:outline-none hover:ring-2 hover:ring-amber-400 transition'
+            className='inline-flex md:hidden h-fit w-fit text-light-primary dark:text-dark-primary p-2 mt-1 ms-1 rounded focus:outline-none hover:ring-2 hover:ring-light-accent dark:hover:ring-dark-accent transition'
           >
             {sidebarVisible ? <Cross2Icon className='h-6 w-6' /> : <HamburgerMenuIcon className='h-6 w-6' />}
           </button>
         </DialogTrigger>
         <DialogContent
-          className='fixed top-0 left-0 w-64 h-full bg-white shadow-md flex flex-col items-center py-8 px-4'
+          className='fixed top-0 left-0 w-64 h-full bg-light-background dark:bg-dark-background shadow-md flex flex-col items-center py-8 px-4'
           aria-label='Sidebar'
         >
           <DialogTitle className='sr-only'>Main Menu</DialogTitle>
           <DialogClose asChild>
             <button
               aria-label='Close Menu'
-              className='absolute top-0 left-0 text-stone-500 p-2 mt-1 ms-1 rounded focus:outline-none hover:ring-2 hover:ring-stone-400 transition'
+              className='absolute top-0 left-0 text-light-text dark:text-dark-text p-2 mt-1 ms-1 rounded focus:outline-none hover:ring-2 hover:ring-light-accent dark:hover:ring-dark-accent transition'
             >
               <Cross2Icon className='h-6 w-6' />
             </button>
           </DialogClose>
-          <div className='text-primary-light dark:text-primary-dark text-4xl font-bold tracking-wider mb-12 relative'>
-            <span className='block transform -rotate-45 leading-none'>Designing</span>
-            <span className='block transform -rotate-45 leading-none ml-16'>Possibilities</span>
-          </div>
+          <SidebarHeader />
           <SearchInput />
-          <nav className='mt-8 w-full'>
-            <ul className='space-y-4 text-stone-700'>
-              <li>
-                <Link href='/' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href='/blog/categories' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
-                  Categories
-                </Link>
-              </li>
-              <DropdownMenu categories={categories} />
-              <li>
-                <Link href='/about' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href='/contact' className='block py-2 px-4 hover:bg-stone-200 rounded transition'>
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <SidebarNavigation categories={categories} />
         </DialogContent>
       </Dialog>
 
       {/* Sidebar for larger screens */}
-      <aside className='hidden md:flex w-64 h-full bg-background-light dark:bg-background-dark shadow-md flex-col items-center py-8 px-4'>
-        <div className='text-primary-light dark:text-primary-dark text-4xl font-bold tracking-wider mb-12 relative'>
-          <span className='block transform -rotate-45 leading-none'>Designing</span>
-          <span className='block transform -rotate-45 leading-none ml-16'>Possibilities</span>
-        </div>
+      <aside className='hidden md:flex w-64 h-full bg-light-background dark:bg-dark-background shadow-md flex-col items-center py-8 px-4'>
+        <SidebarHeader />
         <SearchInput className='mt-8' />
-        <nav className='mt-4 w-full'>
-          <ul className='space-y-4 text-stone-700 dark:text-stone-300'>
-            <li>
-              <Link href='/' className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='/blog/categories'
-                className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'
-              >
-                Categories
-              </Link>
-            </li>
-            <DropdownMenu categories={categories} />
-            <li>
-              <Link
-                href='/about'
-                className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='/contact'
-                className='block py-2 px-4 hover:bg-stone-200 hover:dark:bg-stone-800 rounded transition'
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <SidebarNavigation categories={categories} />
       </aside>
     </>
   );

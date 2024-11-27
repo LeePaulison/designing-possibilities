@@ -8,22 +8,26 @@ export default function Breadcrumbs() {
   const pathname = usePathname();
 
   // Ensure proper splitting and filtering of segments
-  const segments = pathname.split("/").filter((segment) => segment !== "" && segment !== "blog"); // Remove empty and 'blog' segments
+  const segments = pathname?.split("/").filter((segment) => segment !== "" && segment !== "blog"); // Remove empty and 'blog' segments
 
   // Don't render breadcrumbs on the root page
-  if (segments.length === 0) return null;
+  if (segments?.length === 0) return null;
 
   return (
-    <nav aria-label='Breadcrumb' className='mb-4 text-sm text-stone-600'>
+    <nav aria-label='Breadcrumb' className='mb-4 text-sm text-light-secondary dark:text-dark-secondary font-sans'>
       <ul className='flex space-x-2'>
         {/* Always include Home */}
         <li>
-          <Link href='/' className='hover:underline text-amber-500' aria-label='Home Breadcrumb'>
+          <Link
+            href='/'
+            className='hover:underline text-light-accent dark:text-dark-accent'
+            aria-label='Home Breadcrumb'
+          >
             Home
           </Link>
         </li>
 
-        {segments.map((segment, index) => {
+        {segments?.map((segment, index) => {
           const isLast = index === segments.length - 1;
 
           // Handle "Categories" special case
@@ -33,7 +37,7 @@ export default function Breadcrumbs() {
                 <span className='mx-1'>/</span>
                 <Link
                   href='/blog/categories'
-                  className='hover:underline text-amber-500'
+                  className='hover:underline text-light-accent dark:text-dark-accent'
                   aria-label='Categories Breadcrumb'
                 >
                   Categories
@@ -49,11 +53,13 @@ export default function Breadcrumbs() {
               <li key={index} className='flex items-center'>
                 <span className='mx-1'>/</span>
                 {isLast ? (
-                  <span aria-current='page'>{formatCategoryForDisplay(segment)}</span>
+                  <span className='text-light-text dark:text-dark-text' aria-current='page'>
+                    {formatCategoryForDisplay(segment)}
+                  </span>
                 ) : (
                   <Link
                     href={href}
-                    className='hover:underline text-amber-500'
+                    className='hover:underline text-light-accent dark:text-dark-accent'
                     aria-label={`${formatCategoryForDisplay(segment)} Breadcrumb`}
                   >
                     {formatCategoryForDisplay(segment)}
@@ -65,11 +71,12 @@ export default function Breadcrumbs() {
 
           // Handle Post (last breadcrumb)
           if (segments[0] === "categories" && index === segments.length - 1) {
-            console.log("Post segment", segment);
             return (
               <li key={index} className='flex items-center'>
                 <span className='mx-1'>/</span>
-                <span aria-current='page'>{splitIntoWords(segment)}</span>
+                <span className='text-light-text dark:text-dark-text' aria-current='page'>
+                  {splitIntoWords(segment)}
+                </span>
               </li>
             );
           }
@@ -80,11 +87,13 @@ export default function Breadcrumbs() {
             <li key={index} className='flex items-center'>
               <span className='mx-1'>/</span>
               {isLast ? (
-                <span aria-current='page'>{formatCategoryForDisplay(segment)}</span>
+                <span className='text-light-text dark:text-dark-text' aria-current='page'>
+                  {formatCategoryForDisplay(segment)}
+                </span>
               ) : (
                 <Link
                   href={href}
-                  className='hover:underline text-amber-500'
+                  className='hover:underline text-light-accent dark:text-dark-accent'
                   aria-label={`${formatCategoryForDisplay(segment)} Breadcrumb`}
                 >
                   {formatCategoryForDisplay(segment)}

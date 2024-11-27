@@ -22,7 +22,7 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
   return (
     <HoverCard.Root>
       <HoverCard.Trigger asChild>
-        <div className='rounded-lg shadow-md bg-background-light dark:bg-background-dark p-4 hover:shadow hover:dark:shadow-amber-500 transition cursor-pointer'>
+        <div className='rounded-lg shadow-md bg-light-background dark:bg-dark-background p-4 hover:shadow-lg hover:dark:shadow-dark-primary transition cursor-pointer'>
           {/* Image Section */}
           {image && (
             <div className='mb-4'>
@@ -39,18 +39,18 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
 
           {/* Post Content */}
           <div>
-            <h2 className='text-xl font-semibold text-light dark:text-dark mb-2'>
+            <h2 className='text-xl font-serif font-bold text-light-primary dark:text-dark-primary mb-2'>
               <Link href={`/blog/categories/${resolvedCategory}/${slug}`} className='hover:underline'>
                 {title}
               </Link>
             </h2>
-            <p className='text-sm text-stone-500 mb-2'>{date}</p>
+            <p className='text-sm text-light-secondary dark:text-dark-secondary mb-2'>{date}</p>
             {category && (
-              <p className='text-xs text-secondary-light dark:text-secondary-dark mb-4 uppercase tracking-wide'>
+              <p className='text-xs text-light-accent dark:text-dark-accent mb-4 uppercase tracking-wide'>
                 {formatCategoryForDisplay(category)}
               </p>
             )}
-            <p className='text-sm text-light dark:text-dark'>{excerpt}</p>
+            <p className='text-sm font-sans text-light-text dark:text-dark-text'>{excerpt}</p>
           </div>
 
           {/* Tags Section */}
@@ -60,17 +60,17 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
                 {tags.map((tag) => (
                   <Tooltip.Root key={tag}>
                     <Tooltip.Trigger asChild>
-                      <span className='background-light dark:background-dark text-secondary-light dark:text-secondary-dark px-2 py-1 rounded text-sm'>
+                      <span className='bg-light-background dark:bg-dark-background text-light-accent dark:text-dark-accent px-2 py-1 rounded text-sm'>
                         {tag}
                       </span>
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
                       <Tooltip.Content
-                        className='primary-light dark:primary-dark text-white text-xs px-2 py-1 rounded shadow'
+                        className='bg-light-primary dark:bg-dark-primary text-white text-xs px-2 py-1 rounded shadow'
                         sideOffset={5}
                       >
                         Tooltip for {tag}
-                        <Tooltip.Arrow className='fill-stone-800 dark:fill-stone-100' />
+                        <Tooltip.Arrow className='fill-light-primary dark:fill-dark-primary' />
                       </Tooltip.Content>
                     </Tooltip.Portal>
                   </Tooltip.Root>
@@ -82,15 +82,15 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
       </HoverCard.Trigger>
 
       <HoverCard.Content
-        className='bg-background-light dark:bg-background-dark rounded-lg shadow dark:shadow-amber-500 p-4 w-64'
+        className='bg-light-background dark:bg-dark-background rounded-lg shadow dark:shadow-dark-primary p-4 w-64'
         sideOffset={10}
       >
-        <h3 className='text-lg font-semibold text-secondary-light dark:text-secondary-dark'>{title}</h3>
-        <p className='text-sm text-stone-500 mb-2'>{date}</p>
-        <p className='text-sm text-stone-700 dark:text-stone-300'>{excerpt}</p>
+        <h3 className='text-lg font-serif font-bold text-light-primary dark:text-dark-primary'>{title}</h3>
+        <p className='text-sm text-light-secondary dark:text-dark-secondary mb-2'>{date}</p>
+        <p className='text-sm font-sans text-light-text dark:text-dark-text'>{excerpt}</p>
         <Link
           href={`/blog/categories/${resolvedCategory}/${slug}`}
-          className='text-amber-500 hover:underline mt-2 inline-block'
+          className='text-light-accent dark:text-dark-accent hover:underline mt-2 inline-block'
         >
           Read More
         </Link>

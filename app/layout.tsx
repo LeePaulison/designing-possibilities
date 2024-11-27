@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html lang='en'>
-      <body className='font-sans flex bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark'>
+      <body className='font-sans flex bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text'>
         <Sidebar categories={categories} />
         <main className='flex-1 overflow-auto'>
           <div className='max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-8'>
