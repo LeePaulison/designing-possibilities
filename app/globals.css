@@ -17,6 +17,15 @@
   margin-bottom: 1.5rem; /* Create spacing below headings */
 }
 
+.prose h2 {
+  font-family: "Playfair Display", serif; /* Same elegant serif font as h1 */
+  font-size: 2rem; /* Slightly smaller than h1 for hierarchy */
+  font-weight: 600; /* Slightly lighter than h1 for distinction */
+  line-height: 1.3; /* Comfortable line spacing */
+  color: var(--primary-color); /* Matches the primary color of h1 */
+  margin-bottom: 1rem; /* Slightly less spacing than h1 for balance */
+}
+
 /* Paragraph Styles */
 .prose p {
   font-family: "Inter", sans-serif; /* Clean sans-serif for readability */

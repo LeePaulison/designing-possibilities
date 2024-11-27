@@ -2,18 +2,16 @@ import { getCategories, Category } from "@/lib/getCategories";
 import { getPostsByCategory } from "@/lib/getPosts";
 import PostCard from "@/components/ui/PostCard";
 
-type Props = {
-  params: { category: string };
+type PageProps = {
+  params: Promise<{
+    category: string;
+  }>;
 };
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }: { params: PageProps["params"] }) {
   const { category } = await params;
   const categoryData = getCategories().find((cat: Category) => cat.slug === category);
   const posts = getPostsByCategory(category);
-
-  console.log("Category:", category);
-  console.log("Category Data:", categoryData);
-  console.log("Posts:", posts);
 
   if (!categoryData) {
     return <p className='text-light-secondary dark:text-dark-secondary text-center mt-8'>Category not found.</p>;

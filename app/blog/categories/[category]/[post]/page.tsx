@@ -11,11 +11,13 @@ type MetadataType = {
 };
 
 type PageProps = {
-  category: "string";
-  post: "string";
+  params: Promise<{
+    category: string;
+    post: string;
+  }>;
 };
 
-export async function generateMetadata({ params }: { params: PageProps }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: PageProps["params"] }): Promise<Metadata> {
   const { category, post } = await params;
   const posts = getAllPosts();
 
@@ -35,7 +37,7 @@ export async function generateMetadata({ params }: { params: PageProps }): Promi
   };
 
   return {
-    title: `${metadata.title} | My Blog`,
+    title: `${metadata.title} | Designing Possibilities`,
     description: metadata.description,
     openGraph: {
       title: metadata.title,
@@ -53,7 +55,7 @@ export async function generateMetadata({ params }: { params: PageProps }): Promi
   };
 }
 
-export default async function PostPage({ params }: { params: { category: string; post: string } }) {
+export default async function PostPage({ params }: { params: PageProps["params"] }) {
   const { category, post } = await params;
 
   // Get All Posts
