@@ -5,7 +5,7 @@ import React, { ReactNode } from "react";
 import { getCategories } from "@/lib/getCategories";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Sidebar from "@/components/Sidebar";
-import ThemeToggle from "@/components/ui/ThemeToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata = {
   title: "Designing Possibilities",

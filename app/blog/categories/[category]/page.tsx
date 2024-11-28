@@ -1,6 +1,6 @@
 import { getCategories, Category } from "@/lib/getCategories";
 import { getPostsByCategory } from "@/lib/getPosts";
-import PostCard from "@/components/ui/PostCard";
+import PostCard from "@/components/PostCard";
 
 type PageProps = {
   params: Promise<{

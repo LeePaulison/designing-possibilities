@@ -2,7 +2,7 @@ import { getCategories, Category } from "@/lib/getCategories";
 import { getAllPosts, Post } from "@/lib/getPosts";
 import Link from "next/link";
 
-import PostCard from "@/components/ui/PostCard";
+import PostCard from "@/components/PostCard";
 
 export default function CategoriesPage() {
   const categories = getCategories();

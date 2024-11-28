@@ -22,7 +22,11 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
   return (
     <HoverCard.Root>
       <HoverCard.Trigger asChild>
-        <div className='rounded-lg shadow-md bg-light-background dark:bg-dark-background p-4 hover:shadow-lg hover:dark:shadow-dark-primary transition cursor-pointer'>
+        <Link
+          onPointerDown={() => console.log("clicked")}
+          href={`/blog/categories/${resolvedCategory}/${slug}`}
+          className='block rounded-lg shadow-md bg-light-background dark:bg-dark-background p-4 hover:shadow-lg hover:dark:shadow-dark-primary transition cursor-pointer'
+        >
           {/* Image Section */}
           {image && (
             <div className='mb-4'>
@@ -78,7 +82,7 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
               </Tooltip.Provider>
             </div>
           )}
-        </div>
+        </Link>
       </HoverCard.Trigger>
 
       <HoverCard.Content

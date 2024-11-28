@@ -1,6 +1,6 @@
 import { getAllPosts, Post } from "../lib/getPosts";
 
-import PostCard from "@/components/ui/PostCard";
+import PostCard from "@/components/PostCard";
 
 export const metadata = {
   title: "Designing Possibilities",
