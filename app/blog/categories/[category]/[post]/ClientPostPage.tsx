@@ -39,13 +39,13 @@ export default function ClientPostPage({ post }: { post: Post }) {
         <h1 className='text-4xl font-serif font-bold text-light-primary dark:text-dark-primary mb-4'>
           {post.data.title}
         </h1>
-        <p className='text-sm text-light-secondary dark:text-dark-secondary'>{post.data.date}</p>
+        <p className='text-sm text-light-accent dark:text-dark-accent'>{post.data.date}</p>
         {post.data.tags && (
           <div className='flex gap-2 mt-4'>
             {post.data.tags.map((tag) => (
               <span
                 key={tag}
-                className='bg-light-accent dark:bg-dark-accent text-light-text dark:text-dark-text px-2 py-1 rounded text-sm'
+                className='bg-light-primary dark:bg-dark-primary text-dark-text dark:text-dark-text px-2 py-1 rounded text-sm'
               >
                 {tag}
               </span>

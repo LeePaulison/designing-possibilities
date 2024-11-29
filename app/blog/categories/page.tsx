@@ -40,7 +40,7 @@ export default function CategoriesPage() {
           {categories.map((category: Category) => (
             <div
               key={category.slug}
-              className='p-4 border border-light-secondary dark:border-dark-secondary bg-light-background dark:bg-dark-background rounded shadow-md hover:shadow-lg hover:dark:shadow-dark-primary transition'
+              className='p-4 border border-light-secondary dark:border-dark-secondary bg-light-background dark:bg-dark-background rounded shadow-md hover:shadow-md hover:dark:shadow-dark-primary transition'
             >
               <h3 className='text-xl font-serif font-bold text-light-primary dark:text-dark-primary mb-2'>
                 <Link

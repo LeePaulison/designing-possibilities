@@ -11,7 +11,7 @@ import SearchInput from "./SearchInput";
 const SidebarButton = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <Link
     href={href}
-    className='block py-2 px-4 rounded transition text-light-text dark:text-dark-text hover:bg-light-accent dark:hover:bg-dark-accent'
+    className='block py-2 px-4 rounded transition text-light-text dark:text-dark-text hover:ring-2 hover:ring-light-accent dark:hover:ring-dark-accent'
   >
     {children}
   </Link>

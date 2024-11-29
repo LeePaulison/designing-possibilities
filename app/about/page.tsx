@@ -12,7 +12,7 @@ export default function AboutPage() {
           just functional but truly inclusive for everyone.
         </p>
 
-        <h3 className='text-xl font-semibold mb-4 text-light-secondary dark:text-dark-secondary'>
+        <h3 className='text-xl font-semibold mb-4 text-light-primary dark:text-dark-secondary'>
           Why Designing Possibilities?
         </h3>
         <p className='text-lg mb-6'>
@@ -22,7 +22,7 @@ export default function AboutPage() {
           think inclusively when crafting digital experiences.
         </p>
 
-        <h3 className='text-xl font-semibold mb-4 text-light-secondary dark:text-dark-secondary'>My Journey</h3>
+        <h3 className='text-xl font-semibold mb-4 text-light-primary dark:text-dark-secondary'>My Journey</h3>
         <p className='text-lg mb-4'>
           I began my professional journey in 2018, studying Simulations and Visualization at Full Sail University in
           Winter Park, FL. After graduating, I started as a Software Developer, where I honed my skills in HTML, CSS,
@@ -39,7 +39,7 @@ export default function AboutPage() {
           learnings fuel the insights and content you’ll find here.
         </p>
 
-        <h3 className='text-xl font-semibold mb-4 text-light-secondary dark:text-dark-secondary'>What You’ll Find</h3>
+        <h3 className='text-xl font-semibold mb-4 text-light-primary dark:text-dark-secondary'>What You’ll Find</h3>
         <ul className='list-disc list-inside text-lg mb-6'>
           <li>
             <strong className='text-light-accent dark:text-dark-accent'>Insights on accessibility:</strong> Making the
@@ -55,7 +55,7 @@ export default function AboutPage() {
           </li>
         </ul>
 
-        <h3 className='text-xl font-semibold mb-4 text-light-secondary dark:text-dark-secondary'>Let’s Connect</h3>
+        <h3 className='text-xl font-semibold mb-4 text-light-primary dark:text-dark-secondary'>Let’s Connect</h3>
         <p className='text-lg mb-6'>
           Whether you’re here to learn, share ideas, or collaborate, I’d love to hear from you:
         </p>

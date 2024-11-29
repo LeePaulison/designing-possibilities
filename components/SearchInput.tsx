@@ -23,7 +23,11 @@ export default function SearchInput({ className, inputClassName, buttonClassName
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`relative w-full max-w-md mx-auto flex items-center ${className}`}>
+    <form
+      onSubmit={handleSubmit}
+      className={`relative w-full max-w-md mx-auto flex items-center ${className}`}
+      aria-label='Search Content'
+    >
       {/* Magnifying Glass Icon */}
       <span className='absolute left-3'>
         <MagnifyingGlassIcon className='h-5 w-5 text-stone-500' />
@@ -35,6 +39,7 @@ export default function SearchInput({ className, inputClassName, buttonClassName
         onChange={(e) => setQuery(e.target.value)}
         placeholder='Search posts...'
         className={`w-full pl-10 pr-10 py-2 border rounded-lg dark:border-stone-800 bg-background-light dark:bg-background-dark text-light dark:text-dark hover:ring-2 hover:ring-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500 ${inputClassName}`}
+        aria-label='Search Posts'
       />
       {/* Clear Input Button */}
       {query && (

@@ -23,7 +23,7 @@ export default {
           secondary: "#B4BEBF", // Soft Gray
           background: "#011C26", // Deep Blue-Black
           text: "#F0F2F2", // Lightest Gray
-          accent: "#052326", // Slightly lighter Deep Blue-Black
+          accent: "#2BB5BF", // Slightly lighter Deep Blue-Black
         },
       },
       typography: {
