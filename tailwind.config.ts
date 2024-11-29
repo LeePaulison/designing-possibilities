@@ -12,26 +12,26 @@ export default {
     extend: {
       colors: {
         light: {
-          primary: "#F59E0B", // amber.500
-          secondary: "#6366F1", // indigo.500
-          background: "#FAFAF9", // stone.50
-          text: "#1C1917", // stone.900
-          accent: "#38B2AC", // teal.400
+          primary: "#5D7371", // Muted Teal (mapped from palette)
+          secondary: "#B4BEBF", // Soft Gray
+          background: "#F0F2F2", // Lightest Gray
+          text: "#011C26", // Deep Blue-Black
+          accent: "#052326", // Slightly lighter Deep Blue-Black
         },
         dark: {
-          primary: "#D97706", // amber.600
-          secondary: "#2563EB", // blue.600
-          background: "#1C1917", // stone.900
-          text: "#E7E5E4", // stone.200
-          accent: "#319795", // teal.500
+          primary: "#5D7371", // Muted Teal
+          secondary: "#B4BEBF", // Soft Gray
+          background: "#011C26", // Deep Blue-Black
+          text: "#F0F2F2", // Lightest Gray
+          accent: "#052326", // Slightly lighter Deep Blue-Black
         },
       },
       typography: {
         DEFAULT: {
           css: {
             code: {
-              color: "#F59E0B", // Light Amber
-              backgroundColor: "#FAFAF9", // Stone-50
+              color: "#5D7371", // Muted Teal
+              backgroundColor: "#F0F2F2", // Lightest Gray
               borderRadius: "0.25rem", // Rounded code blocks
               padding: "0.2rem 0.4rem", // Highlight size
             },
@@ -40,8 +40,8 @@ export default {
         dark: {
           css: {
             code: {
-              color: "#D97706", // Dark Amber
-              backgroundColor: "#1C1917", // Stone-900
+              color: "#B4BEBF", // Soft Gray
+              backgroundColor: "#011C26", // Deep Blue-Black
             },
           },
         },
