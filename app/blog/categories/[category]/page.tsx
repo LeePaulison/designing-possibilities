@@ -10,8 +10,8 @@ type PageProps = {
   }>;
 };
 
-export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
-  const { category } = params;
+export async function generateMetadata({ params }: { params: PageProps["params"] }): Promise<Metadata> {
+  const { category } = await params;
 
   // Optionally fetch category-specific data here
   const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize category name
