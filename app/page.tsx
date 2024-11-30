@@ -7,20 +7,23 @@ import { Metadata } from "next";
 export const generateMetadata = (): Metadata => {
   return {
     title: "Designing Possibilities | Home",
-    description: "Exploring accessibility and front-end development.",
+    description:
+      "Explore accessibility, front-end development, and design practices with Designing Possibilities, a blog dedicated to inclusive and inspiring web experiences.",
     alternates: {
       canonical: "https://designing-possibilities.vercel.app",
     },
     openGraph: {
-      title: "Designing Possibilities",
-      description: "Sharing insights on accessibility and front-end development.",
+      title: "Designing Possibilities | Home",
+      description:
+        "Explore accessibility, front-end development, and design practices with Designing Possibilities, a blog dedicated to inclusive and inspiring web experiences.",
       url: "https://designing-possibilities.vercel.app",
       images: "/default-image.webp", // Replace with your default image
     },
     twitter: {
       card: "summary_large_image",
-      title: "Designing Possibilities",
-      description: "Sharing insights on accessibility and front-end development.",
+      title: "Designing Possibilities | Home",
+      description:
+        "Explore accessibility, front-end development, and design practices with Designing Possibilities, a blog dedicated to inclusive and inspiring web experiences.",
       images: "/default-image.webp",
     },
   };

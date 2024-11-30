@@ -17,21 +17,27 @@ export async function generateMetadata({ params }: { params: PageProps["params"]
   const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize category name
 
   return {
-    title: `${categoryTitle} | Designing Possibilities`,
-    description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
+    title: `Designing Possibilities | ${categoryTitle}`,
+    description: `Explore posts on ${category} in web design, covering tips, tools, and best practices for ${
+      category === "accessibility" ? "creating inclusive experiences" : "modern development practices"
+    }.`,
     alternates: {
-      canonical: `https://designing-possibilities.vercel.app/blog/categories/${category}`,
+      canonical: `https://designing-possibilities.vercel.app/categories/${category}`,
     },
     openGraph: {
-      title: `${categoryTitle} | Designing Possibilities`,
-      description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
-      url: `https://designing-possibilities.vercel.app/blog/categories/${category}`,
-      images: "/default-image.webp", // Replace with category-specific image if available
+      title: `Designing Possibilities | ${categoryTitle}`,
+      description: `Explore posts on ${category} in web design, covering tips, tools, and best practices for ${
+        category === "accessibility" ? "creating inclusive experiences" : "modern development practices"
+      }.`,
+      url: `https://designing-possibilities.vercel.app/categories/${category}`,
+      images: "/default-image.webp", // Replace with a category-specific image if available
     },
     twitter: {
       card: "summary_large_image",
-      title: `${categoryTitle} | Designing Possibilities`,
-      description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
+      title: `Designing Possibilities | ${categoryTitle}`,
+      description: `Explore posts on ${category} in web design, covering tips, tools, and best practices for ${
+        category === "accessibility" ? "creating inclusive experiences" : "modern development practices"
+      }.`,
       images: "/default-image.webp",
     },
   };

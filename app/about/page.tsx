@@ -5,20 +5,23 @@ import { faGithub, faLinkedin, faBluesky } from "@fortawesome/free-brands-svg-ic
 export const generateMetadata = (): Metadata => {
   return {
     title: "Designing Possibilities | About",
-    description: "Exploring accessibility and front-end development.",
+    description:
+      "I’m Lee, a front-end developer passionate about sharing knowledge and promoting accessibility in web development.",
     alternates: {
       canonical: "https://designing-possibilities.vercel.app/about",
     },
     openGraph: {
-      title: "Designing Possibilities",
-      description: "Sharing insights on accessibility and front-end development.",
+      title: "Designing Possibilities | About",
+      description:
+        "I’m Lee, a front-end developer passionate about sharing knowledge and promoting accessibility in web development.",
       url: "https://designing-possibilities.vercel.app/about",
       images: "/default-image.webp", // Replace with your default image
     },
     twitter: {
       card: "summary_large_image",
-      title: "Designing Possibilities",
-      description: "Sharing insights on accessibility and front-end development.",
+      title: "Designing Possibilities | About",
+      description:
+        "I’m Lee, a front-end developer passionate about sharing knowledge and promoting accessibility in web development.",
       images: "/default-image.webp",
     },
   };

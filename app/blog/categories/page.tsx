@@ -1,28 +1,30 @@
 import { getCategories, Category } from "@/lib/getCategories";
 import { getAllPosts, Post } from "@/lib/getPosts";
 import Link from "next/link";
+import { Metadata } from "next";
 
 import PostCard from "@/components/PostCard";
 
-import { Metadata } from "next";
-
 export const generateMetadata = (): Metadata => {
   return {
-    title: "Categories | Designing Possibilities",
-    description: "Explore all categories and topics covered on Designing Possibilities.",
+    title: "Designing Possibilities | Categories",
+    description:
+      "Browse categories on Designing Possibilities to explore posts about accessibility, front-end development, and web design practices.",
     alternates: {
-      canonical: "https://designing-possibilities.vercel.app/blog/categories",
+      canonical: "https://designing-possibilities.vercel.app/categories",
     },
     openGraph: {
-      title: "Categories | Designing Possibilities",
-      description: "Explore all categories and topics covered on Designing Possibilities.",
-      url: "https://designing-possibilities.vercel.app/blog/categories",
+      title: "Designing Possibilities | Categories",
+      description:
+        "Browse categories on Designing Possibilities to explore posts about accessibility, front-end development, and web design practices.",
+      url: "https://designing-possibilities.vercel.app/categories",
       images: "/default-image.webp", // Replace with your default image
     },
     twitter: {
       card: "summary_large_image",
-      title: "Categories | Designing Possibilities",
-      description: "Explore all categories and topics covered on Designing Possibilities.",
+      title: "Designing Possibilities | Categories",
+      description:
+        "Browse categories on Designing Possibilities to explore posts about accessibility, front-end development, and web design practices.",
       images: "/default-image.webp",
     },
   };
