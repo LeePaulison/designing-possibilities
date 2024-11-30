@@ -13,9 +13,10 @@ type PostCardProps = {
   slug: string;
   image?: string;
   tags?: string[];
+  alt?: string;
 };
 
-export default function PostCard({ title, excerpt, date, category, slug, image, tags }: PostCardProps) {
+export default function PostCard({ title, excerpt, date, category, slug, image, alt, tags }: PostCardProps) {
   const resolvedCategory = category?.toLowerCase() || "uncategorized";
 
   return (
@@ -29,7 +30,7 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
         <div className='mb-4'>
           <Image
             src={image}
-            alt={title}
+            alt={alt || title}
             width={400}
             height={200}
             style={{ objectFit: "cover" }}

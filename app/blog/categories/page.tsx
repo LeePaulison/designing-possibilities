@@ -51,6 +51,7 @@ export default function CategoriesPage() {
               category={post.data.category}
               slug={post.slug}
               image={post.data.image}
+              alt={post.data.alt}
               tags={post.data.tags}
             />
           ))}

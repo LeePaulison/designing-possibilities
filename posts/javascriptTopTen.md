@@ -4,6 +4,7 @@ date: "2024-11-24"
 excerpt: "Master these top 10 tips and tricks in Javascript."
 tags: ["javascript", "development", "frontend"]
 image: "/default-image.webp"
+alt: "Default Image used for this article."
 category: "JavaScript-Tips"
 ---
 

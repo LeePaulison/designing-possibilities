@@ -57,6 +57,7 @@ export default async function HomePage() {
               excerpt={post.data.excerpt}
               date={post.data.date}
               image={post.data.image}
+              alt={post.data.alt}
               tags={post.data.tags}
               category={post.data.category}
             />

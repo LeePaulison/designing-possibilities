@@ -11,6 +11,7 @@ export type PostData = {
   tags: string[];
   category: string;
   image?: string;
+  alt?: string;
 };
 
 export type Post = {
@@ -38,6 +39,7 @@ export function getAllPosts(): Post[] {
         tags: data.tags || [],
         category, // Ensured to have a value
         image: data.image || undefined,
+        alt: data.alt || undefined,
       },
       content: matter(fileContents).content,
     };
