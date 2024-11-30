@@ -22,14 +22,14 @@ export async function generateMetadata({ params }: { params: PageProps["params"]
       category === "accessibility" ? "creating inclusive experiences" : "modern development practices"
     }.`,
     alternates: {
-      canonical: `https://designing-possibilities.vercel.app/categories/${category}`,
+      canonical: `https://designing-possibilities.vercel.app/blog/categories/${category}`,
     },
     openGraph: {
       title: `Designing Possibilities | ${categoryTitle}`,
       description: `Explore posts on ${category} in web design, covering tips, tools, and best practices for ${
         category === "accessibility" ? "creating inclusive experiences" : "modern development practices"
       }.`,
-      url: `https://designing-possibilities.vercel.app/categories/${category}`,
+      url: `https://designing-possibilities.vercel.app/blog/categories/${category}`,
       images: "/default-image.webp", // Replace with a category-specific image if available
     },
     twitter: {
