@@ -35,6 +35,31 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/(.*)", // Apply to all routes
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload", // HSTS
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff", // Content Sniffing Protection
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY", // Clickjacking Protection
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block", // XSS Protection
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
