@@ -37,9 +37,6 @@ const SidebarNavigation = ({ categories }: { categories: Category[] }) => (
       <li>
         <SidebarButton href='/about'>About</SidebarButton>
       </li>
-      <li>
-        <SidebarButton href='/contact'>Contact</SidebarButton>
-      </li>
     </ul>
   </nav>
 );

@@ -1,3 +1,29 @@
+import { Metadata } from "next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin, faBluesky } from "@fortawesome/free-brands-svg-icons";
+
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Designing Possibilities | About",
+    description: "Exploring accessibility and front-end development.",
+    alternates: {
+      canonical: "https://designing-possibilities.vercel.app/about",
+    },
+    openGraph: {
+      title: "Designing Possibilities",
+      description: "Sharing insights on accessibility and front-end development.",
+      url: "https://designing-possibilities.vercel.app/about",
+      images: "/default-image.webp", // Replace with your default image
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Designing Possibilities",
+      description: "Sharing insights on accessibility and front-end development.",
+      images: "/default-image.webp",
+    },
+  };
+};
+
 export default function AboutPage() {
   return (
     <main className='p-6 md:p-12 lg:p-24 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text font-sans'>
@@ -59,21 +85,38 @@ export default function AboutPage() {
         <p className='text-lg mb-6'>
           Whether you’re here to learn, share ideas, or collaborate, I’d love to hear from you:
         </p>
-        <ul className='list-disc list-inside text-lg mb-6'>
+        <ul className='list-none pl-0 flex space-x-6 mt-4 mb-6'>
           <li>
-            <strong className='text-light-accent dark:text-dark-accent'>Explore the blog</strong> to dive into my latest
-            thoughts and projects.
+            <a
+              href='https://www.linkedin.com/in/lee-paulison-jr/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center text-light-accent hover:underline dark:text-dark-accent'
+            >
+              <FontAwesomeIcon icon={faLinkedin} className='w-5 h-5 mr-2' /> LinkedIn
+            </a>
           </li>
           <li>
-            <strong className='text-light-accent dark:text-dark-accent'>Reach out on social media</strong> to connect
-            and share your insights.
+            <a
+              href='https://github.com/LeePaulison'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center text-light-accent hover:underline dark:text-dark-accent'
+            >
+              <FontAwesomeIcon icon={faGithub} className='w-5 h-5 mr-2' /> GitHub
+            </a>
           </li>
           <li>
-            <strong className='text-light-accent dark:text-dark-accent'>Collaborate with me</strong> on projects that
-            make the web a better place for everyone.
+            <a
+              href='https://bsky.app/profile/leepjr.bsky.social'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center text-light-accent hover:underline dark:text-dark-accent'
+            >
+              <FontAwesomeIcon icon={faBluesky} className='w-5 h-5 mr-2' /> BlueSky
+            </a>
           </li>
         </ul>
-
         <p className='text-lg'>Together, we can design new possibilities.</p>
       </section>
     </main>

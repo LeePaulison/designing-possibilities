@@ -1,5 +1,8 @@
 import "prismjs/themes/prism-tomorrow.css";
 import "./globals.css";
+import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS for FontAwesome
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false; // Disable auto CSS injection for better control
 
 import React, { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/react";
