@@ -4,6 +4,30 @@ import Link from "next/link";
 
 import PostCard from "@/components/PostCard";
 
+import { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Categories | Designing Possibilities",
+    description: "Explore all categories and topics covered on Designing Possibilities.",
+    alternates: {
+      canonical: "https://designing-possibilities.vercel.app/categories",
+    },
+    openGraph: {
+      title: "Categories | Designing Possibilities",
+      description: "Explore all categories and topics covered on Designing Possibilities.",
+      url: "https://designing-possibilities.vercel.app/categories",
+      images: "/default-image.webp", // Replace with your default image
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Categories | Designing Possibilities",
+      description: "Explore all categories and topics covered on Designing Possibilities.",
+      images: "/default-image.webp",
+    },
+  };
+};
+
 export default function CategoriesPage() {
   const categories = getCategories();
   const latestPosts = getAllPosts().slice(0, 4); // Latest 4 posts

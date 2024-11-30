@@ -1,5 +1,7 @@
 import { getCategories, Category } from "@/lib/getCategories";
 import { getPostsByCategory } from "@/lib/getPosts";
+import { Metadata } from "next";
+
 import PostCard from "@/components/PostCard";
 
 type PageProps = {
@@ -7,6 +9,33 @@ type PageProps = {
     category: string;
   }>;
 };
+
+export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
+  const { category } = params;
+
+  // Optionally fetch category-specific data here
+  const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize category name
+
+  return {
+    title: `${categoryTitle} | Designing Possibilities`,
+    description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
+    alternates: {
+      canonical: `https://designing-possibilities.vercel.app/categories/${category}`,
+    },
+    openGraph: {
+      title: `${categoryTitle} | Designing Possibilities`,
+      description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
+      url: `https://designing-possibilities.vercel.app/categories/${category}`,
+      images: "/default-image.webp", // Replace with category-specific image if available
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${categoryTitle} | Designing Possibilities`,
+      description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
+      images: "/default-image.webp",
+    },
+  };
+}
 
 export default async function CategoryPage({ params }: { params: PageProps["params"] }) {
   const { category } = await params;

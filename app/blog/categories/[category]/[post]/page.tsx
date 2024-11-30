@@ -1,14 +1,7 @@
 import { getAllPosts } from "@/lib/getPosts";
 import { notFound } from "next/navigation";
 import ClientPostPage from "./ClientPostPage";
-import { Metadata } from "next";
-
-type MetadataType = {
-  slug: string;
-  title: string;
-  description: string;
-  image?: string;
-};
+import { generateMetadata as generatePostMetadata } from "@/lib/generateMetadata";
 
 type PageProps = {
   params: Promise<{
@@ -17,42 +10,8 @@ type PageProps = {
   }>;
 };
 
-export async function generateMetadata({ params }: { params: PageProps["params"] }): Promise<Metadata> {
-  const { category, post } = await params;
-  const posts = getAllPosts();
-
-  const postData = posts.find(
-    (p) => p.slug.toLowerCase() === post.toLowerCase() && p.data.category.toLowerCase() === category.toLowerCase()
-  );
-
-  if (!postData) {
-    notFound();
-  }
-
-  const metadata: MetadataType = {
-    slug: postData.slug,
-    title: postData.data.title,
-    description: postData.data.excerpt,
-    image: postData.data.image,
-  };
-
-  return {
-    title: `${metadata.title} | Designing Possibilities`,
-    description: metadata.description,
-    openGraph: {
-      title: metadata.title,
-      description: metadata.description,
-      url: `https://example.com/blog/${metadata.slug}`,
-      images: metadata.image || "/default-image.jpg",
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: metadata.title,
-      description: metadata.description,
-      images: metadata.image || "/default-image.jpg",
-    },
-  };
+export async function generateMetadata({ params }: { params: PageProps["params"] }) {
+  return generatePostMetadata({ params });
 }
 
 export default async function PostPage({ params }: { params: PageProps["params"] }) {

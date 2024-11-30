@@ -2,9 +2,28 @@ import { getAllPosts, Post } from "../lib/getPosts";
 
 import PostCard from "@/components/PostCard";
 
-export const metadata = {
-  title: "Designing Possibilities",
-  description: "Exploring possibilities through words.",
+import { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Designing Possibilities | Home",
+    description: "Exploring accessibility and front-end development.",
+    alternates: {
+      canonical: "https://designing-possibilities.vercel.app",
+    },
+    openGraph: {
+      title: "Designing Possibilities",
+      description: "Sharing insights on accessibility and front-end development.",
+      url: "https://designing-possibilities.vercel.app",
+      images: "/default-image.webp", // Replace with your default image
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Designing Possibilities",
+      description: "Sharing insights on accessibility and front-end development.",
+      images: "/default-image.webp",
+    },
+  };
 };
 
 export default async function HomePage() {
