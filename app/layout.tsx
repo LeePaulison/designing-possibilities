@@ -10,6 +10,7 @@ import Sidebar from "@/components/Sidebar";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata = {
+  metadataBase: new URL("https://designing-possibilities.vercel.app"),
   title: "Designing Possibilities",
   description: "Exploring the possibilities found in accessible front-end design.",
 };
