@@ -2,6 +2,8 @@ import "prismjs/themes/prism-tomorrow.css";
 import "./globals.css";
 
 import React, { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getCategories } from "@/lib/getCategories";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Sidebar from "@/components/Sidebar";
@@ -36,6 +38,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
             {children}
           </div>
+          <Analytics />
+          <SpeedInsights />
         </main>
       </body>
     </html>
