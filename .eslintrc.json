@@ -1,5 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"],
+  "extends": ["next/core-web-vitals", "next/typescript", "plugin:jsx-a11y/recommended"],
+  "plugins": ["jsx-a11y"],
   "rules": {
     "@typescript-eslint/no-unused-expressions": [
       "error",
@@ -7,6 +8,15 @@
         "allowShortCircuit": true, // Optional: Allow short-circuit expressions
         "allowTernary": true // Optional: Allow ternary expressions
       }
-    ]
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"], // Custom handling for Next.js Link
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ],
+    "@next/next/no-page-custom-font": "off" // Disable custom font linting
   }
 }
