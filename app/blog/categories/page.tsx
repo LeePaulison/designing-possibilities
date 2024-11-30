@@ -11,12 +11,12 @@ export const generateMetadata = (): Metadata => {
     title: "Categories | Designing Possibilities",
     description: "Explore all categories and topics covered on Designing Possibilities.",
     alternates: {
-      canonical: "https://designing-possibilities.vercel.app/categories",
+      canonical: "https://designing-possibilities.vercel.app/blog/categories",
     },
     openGraph: {
       title: "Categories | Designing Possibilities",
       description: "Explore all categories and topics covered on Designing Possibilities.",
-      url: "https://designing-possibilities.vercel.app/categories",
+      url: "https://designing-possibilities.vercel.app/blog/categories",
       images: "/default-image.webp", // Replace with your default image
     },
     twitter: {

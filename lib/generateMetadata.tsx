@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: PageProps["params"]
     notFound(); // Trigger Next.js 404 behavior if the post is not found
   }
 
-  const canonicalUrl = `https://designing-possibilities.vercel.app/blog/${postData.slug}`;
+  const canonicalUrl = `https://designing-possibilities.vercel.app/blog/categories/${category.toLowerCase()}/${postData.slug.toLowerCase()}`;
 
   const metadata = {
     slug: postData.slug,

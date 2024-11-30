@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: { params: PageProps["params"]
     title: `${categoryTitle} | Designing Possibilities`,
     description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
     alternates: {
-      canonical: `https://designing-possibilities.vercel.app/categories/${category}`,
+      canonical: `https://designing-possibilities.vercel.app/blog/categories/${category}`,
     },
     openGraph: {
       title: `${categoryTitle} | Designing Possibilities`,
       description: `Explore articles and insights under the ${categoryTitle} category on Designing Possibilities.`,
-      url: `https://designing-possibilities.vercel.app/categories/${category}`,
+      url: `https://designing-possibilities.vercel.app/blog/categories/${category}`,
       images: "/default-image.webp", // Replace with category-specific image if available
     },
     twitter: {
