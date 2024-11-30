@@ -36,6 +36,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    this.poweredByHeader = false;
     return [
       {
         source: "/(.*)", // Apply to all routes

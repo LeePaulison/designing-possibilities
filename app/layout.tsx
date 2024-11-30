@@ -31,6 +31,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
         <meta name='apple-mobile-web-app-title' content='Designing Possibilities' />
         <link rel='manifest' href='/site.webmanifest' />
+        {/* Google Fonts */}
+        <link
+          href='https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap'
+          rel='stylesheet'
+        />
+
+        {/* External Prism Theme */}
+        <link
+          href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css'
+          rel='stylesheet'
+        />
       </head>
       <body className='font-sans flex bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text'>
         <Sidebar categories={categories} />
