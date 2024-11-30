@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import * as HoverCard from "@radix-ui/react-hover-card";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import Link from "next/link";
 import { formatCategoryForDisplay } from "@/lib/utilities";
