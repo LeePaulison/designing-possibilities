@@ -47,8 +47,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"], // Primary font
-        serif: ["Playfair Display", "serif"], // Secondary font
+        sans: ["var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-playfair)", "serif"],
       },
     },
   },

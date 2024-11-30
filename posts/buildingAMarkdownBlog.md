@@ -3,7 +3,7 @@ title: "Building a Markdown Blog"
 date: "2024-11-24"
 excerpt: "What’s the secret to creating a professional blog that’s both beautiful and efficient?"
 tags: ["Markdown", "TailwindCSS", "Next.js"]
-image: "https://picsum.photos/400/225"
+image: "/default-image.webp"
 category: "Designing-Possibilities"
 ---
 

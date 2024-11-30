@@ -3,7 +3,7 @@ title: "Crafting a Developer-Friendly Chatbot"
 date: "2024-11-24"
 excerpt: "Building an AI chatbot tailored to developers is no small feat."
 tags: ["javascript", "development", "Gen-AI"]
-image: "https://picsum.photos/400/225"
+image: "/default-image.webp"
 category: "Project-404"
 ---
 

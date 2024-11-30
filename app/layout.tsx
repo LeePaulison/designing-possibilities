@@ -12,6 +12,15 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Sidebar from "@/components/Sidebar";
 import ThemeToggle from "@/components/ThemeToggle";
 
+import { Inter, Playfair_Display } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-inter" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-playfair",
+});
+
 export const metadata = {
   metadataBase: new URL("https://designing-possibilities.vercel.app"),
   title: "Designing Possibilities",
@@ -43,7 +52,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel='stylesheet'
         />
       </head>
-      <body className='font-sans flex bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text'>
+      <body
+        className={`font-sans flex bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text ${inter.variable} ${playfair.variable}`}
+      >
         <Sidebar categories={categories} />
         <main className='flex-1 overflow-auto'>
           <div className='max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-8'>

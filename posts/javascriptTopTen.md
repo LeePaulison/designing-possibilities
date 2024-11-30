@@ -3,7 +3,7 @@ title: "Top 10 Tips for JavaScript"
 date: "2024-11-24"
 excerpt: "Master these top 10 tips and tricks in Javascript."
 tags: ["javascript", "development", "frontend"]
-image: "https://picsum.photos/400/225"
+image: "/default-image.webp"
 category: "JavaScript-Tips"
 ---
 
