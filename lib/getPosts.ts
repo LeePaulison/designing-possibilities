@@ -51,8 +51,6 @@ export function getAllPosts(): Post[] {
 export function getPostsByCategory(category: string) {
   const allPosts = getAllPosts();
 
-  console.log("All Posts:", allPosts);
-
   return allPosts.filter((post) => {
     const postCategory = post.data.category?.trim() || "Uncategorized"; // Default to "Uncategorized"
     return postCategory.toLowerCase() === category.toLowerCase();
