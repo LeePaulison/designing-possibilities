@@ -17,7 +17,7 @@ export default function RadixDropdownMenu({ categories }: DropdownMenuProps) {
         aria-label='Categories'
       >
         Explore Topics
-        <span className='text-light-secondary dark:text-dark-secondary'>▼</span>
+        <span className='text-light-accent dark:text-dark-accent'>▼</span>
       </DropdownMenu.Trigger>
 
       {/* Dropdown Content */}

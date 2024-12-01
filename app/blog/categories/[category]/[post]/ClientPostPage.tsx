@@ -45,7 +45,7 @@ export default function ClientPostPage({ post }: { post: Post }) {
             {post.data.tags.map((tag) => (
               <span
                 key={tag}
-                className='bg-light-primary dark:bg-dark-primary text-dark-text dark:text-dark-text px-2 py-1 rounded text-sm'
+                className='bg-light-secondary dark:bg-dark-accent text-light-text dark:text-dark-background border border-gray-400 px-2 py-1 rounded text-sm'
               >
                 {tag}
               </span>

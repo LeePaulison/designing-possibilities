@@ -18,11 +18,7 @@ export default function Breadcrumbs() {
       <ul className='flex space-x-2'>
         {/* Always include Home */}
         <li>
-          <Link
-            href='/'
-            className='hover:underline text-light-accent dark:text-dark-accent'
-            aria-label='Home Breadcrumb'
-          >
+          <Link href='/' className='hover:underline text-light-text dark:text-dark-text' aria-label='Home Breadcrumb'>
             Home
           </Link>
         </li>
