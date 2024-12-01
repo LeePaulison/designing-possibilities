@@ -60,42 +60,44 @@
 
 /* Light Theme */
 html.light {
-  --code-color: #78350f; /* Amber-800 */
-  --code-bg: #fef3c7; /* Amber-100 */
-  --pre-bg: #fafaf9; /* Stone-50 for pre background */
-  --pre-border: #e7e5e4; /* Stone-200 for light theme border */
+  --code-color: #5d7371; /* Muted Teal (Primary Text Color) */
+  --code-bg: #f0f2f2; /* Lightest Gray (Background) */
+  --pre-bg: #f0f2f2; /* Light Background */
+  --pre-border: #b4bebf; /* Soft Gray for borders */
 }
+
 .prose pre {
   background-color: var(--pre-bg);
   border: 1px solid var(--pre-border);
-  color: #292524; /* Stone-900 */
+  color: #011c26; /* Deep Blue-Black (Text Color) */
 }
 
 /* Dark Theme */
 html.dark {
-  --code-color: #d97706; /* Amber-600 */
-  --code-bg: #1c1917; /* Stone-900 */
-  --pre-bg: #1e293b; /* Slate-800 */
-  --pre-border: #292524; /* Stone-800 */
+  --code-color: #b4bebf; /* Soft Gray (Secondary Text Color) */
+  --code-bg: #011c26; /* Deep Blue-Black (Background) */
+  --pre-bg: #011c26; /* Dark Background */
+  --pre-border: #2bb5bf; /* Accent Color for Borders */
 }
+
 html.dark .prose pre {
   background-color: var(--pre-bg);
   border: 1px solid var(--pre-border);
-  color: #e7e5e4; /* Stone-200 */
+  color: #f0f2f2; /* Lightest Gray (Text Color) */
 }
 
-/* Dark Theme */
+/* Dark Theme Inline Code */
 html.dark .prose :not(pre) code {
-  color: var(--code-color, #d97706); /* Darker Amber */
-  background-color: var(--code-bg, #1c1917); /* Stone-900 */
+  color: var(--code-color, #b4bebf); /* Secondary Text */
+  background-color: var(--code-bg, #011c26); /* Background */
 }
 
 /* Inline Code */
 .prose :not(pre) code {
-  color: var(--code-color); /* Theme-aware text color */
-  background-color: var(--code-bg); /* Theme-aware background */
+  color: var(--code-color); /* Theme-aware Text Color */
+  background-color: var(--code-bg); /* Theme-aware Background */
   font-family: "Fira Code", monospace;
-  padding: 0.25rem 0.5rem; /* Increase padding slightly */
+  padding: 0.25rem 0.5rem; /* Consistent Padding */
   border-radius: 0.25rem;
-  font-size: 0.85rem; /* Slightly smaller for inline */
+  font-size: 0.85rem; /* Slightly Smaller for Inline */
 }
