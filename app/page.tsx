@@ -36,8 +36,18 @@ export default async function HomePage() {
   return (
     <section className='container mx-auto py-8 px-4'>
       {/* Welcome Section */}
-      <div className='bg-light-background dark:bg-dark-background py-20 text-center mb-12 rounded-lg shadow dark:shadow-dark-primary'>
-        <h1 className='text-5xl font-serif font-bold mb-4 text-light-secondary dark:text-dark-secondary'>
+      <div className='bg-light-background dark:bg-dark-background py-20 text-center mb-12 p-2 md:p-4 rounded-lg shadow dark:shadow-dark-primary'>
+        <h1
+          className='
+  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+  font-serif font-bold
+  mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12
+  text-center
+  text-light-secondary dark:text-dark-secondary
+  leading-tight sm:leading-snug md:leading-normal
+  tracking-wide sm:tracking-normal md:tracking-tight
+'
+        >
           Designing Possibilities
         </h1>
         <p className='text-lg font-sans max-w-2xl mx-auto text-light-text dark:text-dark-text'>

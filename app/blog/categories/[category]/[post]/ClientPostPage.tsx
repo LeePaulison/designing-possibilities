@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { parseMarkdown } from "@/lib/markdownToHtml";
-import { useAddCopyButtons } from "@/app/hooks/useAddCopyButtons";
 import Link from "next/link";
 
 type Post = {
@@ -18,9 +17,6 @@ type Post = {
 
 export default function ClientPostPage({ post }: { post: Post }) {
   const [contentHtml, setContentHtml] = useState<string>("");
-
-  // Add copy buttons to the rendered content
-  useAddCopyButtons(contentHtml);
 
   // Parse the Markdown content on the client
   useEffect(() => {

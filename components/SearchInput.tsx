@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MagnifyingGlassIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 
@@ -10,9 +10,26 @@ interface SearchInputProps {
   buttonClassName?: string;
 }
 
+function useDebounce(value: string, delay: number) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
 export default function SearchInput({ className, inputClassName, buttonClassName }: SearchInputProps) {
   const [query, setQuery] = useState("");
   const router = useRouter();
+  const debouncedQuery = useDebounce(query, 300);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +38,12 @@ export default function SearchInput({ className, inputClassName, buttonClassName
     }
     setQuery("");
   };
+
+  useEffect(() => {
+    if (debouncedQuery.trim() !== "") {
+      router.push(`/search?query=${encodeURIComponent(debouncedQuery)}`);
+    }
+  }, [debouncedQuery, router]);
 
   return (
     <form
@@ -38,7 +61,7 @@ export default function SearchInput({ className, inputClassName, buttonClassName
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder='Search posts...'
-        className={`w-full pl-10 pr-10 py-2 border rounded-lg dark:border-stone-800 bg-background-light dark:bg-background-dark text-light dark:text-dark hover:ring-2 hover:ring-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500 ${inputClassName}`}
+        className={`w-full pl-10 pr-10 py-2 border rounded-lg dark:border-stone-800 bg-background-light dark:bg-background-dark text-light-text hover:ring-2 hover:ring-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500 ${inputClassName}`}
         aria-label='Search Posts'
       />
       {/* Clear Input Button */}
