@@ -30,7 +30,7 @@ export default function Breadcrumbs() {
           if (segment === "categories") {
             return (
               <li key={index} className='flex items-center'>
-                <span className='mx-1'>/</span>
+                <span className='text-light-text dark:text-dark-text mx-1'>/</span>
                 <Link
                   href='/blog/categories'
                   className='hover:underline text-light-accent dark:text-dark-accent'
@@ -46,7 +46,7 @@ export default function Breadcrumbs() {
           if (segments[0] === "categories" && index === 1) {
             const href = `/blog/categories/${segment}`;
             return (
-              <li key={index} className='flex items-center'>
+              <li key={index} className='flex items-center text-light-text dark:text-dark-text'>
                 <span className='mx-1'>/</span>
                 {isLast ? (
                   <span className='text-light-text dark:text-dark-text' aria-current='page'>
@@ -69,7 +69,7 @@ export default function Breadcrumbs() {
           if (segments[0] === "categories" && index === segments.length - 1) {
             return (
               <li key={index} className='flex items-center'>
-                <span className='mx-1'>/</span>
+                <span className='text-light-text dark:text-dark-text mx-1'>/</span>
                 <span className='text-light-text dark:text-dark-text' aria-current='page'>
                   {splitIntoWords(segment)}
                 </span>
