@@ -40,10 +40,8 @@ export default function PostCard({ title, excerpt, date, category, slug, image, 
 
       {/* Post Content */}
       <div>
-        <h2 className='text-xl font-serif font-bold text-light-primary dark:text-dark-primary mb-2'>
-          <p>{title}</p>
-        </h2>
-        <p className='text-sm text-light-secondary dark:text-dark-secondary mb-2'>{date}</p>
+        <h2 className='text-xl font-serif font-bold text-light-primary dark:text-dark-primary mb-2'>{title}</h2>
+        <p className='text-sm text-light-accent dark:text-dark-accent mb-2'>{date}</p>
         {category && (
           <p className='text-xs text-light-accent dark:text-dark-accent mb-4 uppercase tracking-wide'>
             {formatCategoryForDisplay(category)}

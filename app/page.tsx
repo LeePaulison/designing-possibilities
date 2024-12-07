@@ -43,7 +43,7 @@ export default async function HomePage() {
   font-serif font-bold
   mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12
   text-center
-  text-light-secondary dark:text-dark-secondary
+  text-light-accent dark:text-dark-accent
   leading-tight sm:leading-snug md:leading-normal
   tracking-wide sm:tracking-normal md:tracking-tight
 '
