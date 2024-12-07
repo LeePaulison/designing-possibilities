@@ -1,3 +1,13 @@
+---
+title: "Markdown to HTML"
+date: "2024-12-07"
+excerpt: "Markdown is a developer’s best friend for creating clean, formatted content quickly."
+tags: ["markdown", "html", "development"]
+category: "Designing-Possibilities"
+image: "/markdownToHTMLDataflow.drawio.svg"
+alt: "Default Image | Welcome to Designing Possibilities"
+---
+
 # Markdown to HTML
 
 A Guide to taking your Markdown files and converting them to HTML.
@@ -121,7 +131,7 @@ This function reads Markdown files, extracts their metadata and content, and ret
 
 To render it as HTML, you’ll need additional tools like **remark** and **rehype**.
 
-![Markdown to HTML Flowchart](https://prod-files-secure.s3.us-west-2.amazonaws.com/a535c2e0-2ec8-4bc3-b0bd-f35de3aea59f/09c6c34f-aad5-4835-9eaf-f0bef3e2238e/Markdown_to_HTML_Data_flow.drawio.svg)
+![Markdown to HTML Flowchart](/markdownToHTMLDataflow.drawio.svg)
 
 Markdown to HTML Flowchart
 
